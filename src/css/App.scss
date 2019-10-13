@@ -1,0 +1,30 @@
+
+.panel {
+    width: 20%;
+    height: 800px;
+    display: inline-block;
+    margin: 1em;
+    border: 1px solid cadetblue;
+}
+
+.banner {
+    border: 1px solid cadetblue;
+    .banner__title{
+        padding: 20px;
+        /*margin: 0;*/
+    }
+}
+
+
+.calendar {
+    border: 1px solid cadetblue;
+    width: 70%;
+    display: inline-block;
+    margin: 1em;
+    vertical-align: top;
+}
+
+.calendar__top {
+
+}
+

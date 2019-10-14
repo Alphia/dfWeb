@@ -3,6 +3,7 @@ import '../css/App.scss';
 import Logon from "./Logon";
 import LogonPic from "../pic/logon.jpg";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Selector from "./Selector";
 
 
 const styles = {
@@ -69,7 +70,7 @@ class App extends React.Component {
                         <div className={classes.banner}>
                             <div className={classes.bannerRight}>
                                 <p className={classes.bannerP}>Welcome &nbsp;
-                                    <p className={classes.bannerName}>{this.state.userName}</p>
+                                    <b className={classes.bannerName}>{this.state.userName}</b>
                                 </p>
                                 <p className={classes.bannerP} onClick={this.logout}>Log out</p>
                             </div>
@@ -78,6 +79,8 @@ class App extends React.Component {
 
                         <div className='panel'>
                         </div>
+                        <Selector></Selector>
+
                     </div>) : <Logon logonHandler={this.logon}/>}
             </React.Fragment>)
     }

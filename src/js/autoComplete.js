@@ -22,12 +22,13 @@ const useStyles = makeStyles(theme => ({
     input: {
         display: 'flex',
         padding: 0,
+        paddingTop: '15px',
         height: 'auto',
-        fontSize: 30,
+        fontSize: '30px',
         fontWeight: 80
     },
     label: {
-        fontSize: 30,
+        fontSize: '36px',
     },
     valueContainer: {
         display: 'flex',
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     },
     chip: {
         margin: theme.spacing(0.5, 0.25),
-        fontSize: 20
+        fontSize: 24
     },
     chipFocused: {
         backgroundColor: emphasize(
@@ -56,7 +57,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         left: 2,
         bottom: 6,
-        fontSize: 24,
+        fontSize: 20,
     },
     paper: {
         position: 'absolute',
@@ -355,6 +356,7 @@ export default function IntegrationReactSelect(props) {
                         },
                     }}
                     placeholder="可多选"
+
                     options={suggestions}
                     components={components}
                     value={multi}

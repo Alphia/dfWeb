@@ -45,7 +45,8 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         height: 848,
         width: '90%',
-        margin: '0 5% 0 5%'
+        margin: '0 5% 0 5%',
+        fontSize: '24px'
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
@@ -54,10 +55,10 @@ const useStyles = makeStyles(theme => ({
         fontSize: 24,
     },
     news: {
-        fontSize:'24px',
-        margin:'30px 0 0 50px',
+        fontSize: '24px',
+        margin: '30px 0 0 50px',
     },
-    link:{
+    link: {
         display: 'block',
         marginBottom: '10px'
     },
@@ -68,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     searchBox: {
         margin: '0 0 0 0',
         minHeight: '170px',
-        height: '170px'
+        height: '170px',
         // borderBottom: '1px solid'
     },
     criteria: {
@@ -88,7 +89,7 @@ const useStyles = makeStyles(theme => ({
         left: '30%'
     },
     resultTable: {
-        marginTop: '20px',
+        marginTop: '40px',
         borderTop: '1px solid',
         // height: 500,
     },
@@ -101,10 +102,15 @@ const useStyles = makeStyles(theme => ({
         marginTop: '10px',
     },
     label: {
-        fontSize: '24px',
+        fontSize: '36px',
     },
     input: {
-        fontSize: '24px'
+        fontSize: '24px',
+        paddingTop: '20px',
+    },
+    textInput:{
+        fontSize: '24px',
+        paddingTop: '5px',
     }
 }));
 
@@ -188,7 +194,7 @@ export default function VerticalTabs() {
                                 className={clsx(classes.selectEmpty)}
                             >
                                 <MenuItem value="">
-                                    <em>暂空</em>
+                                    <em>不选</em>
                                 </MenuItem>
                                 <MenuItem value={10}>耳鼻喉</MenuItem>
                                 <MenuItem value={20}>口腔</MenuItem>
@@ -220,7 +226,7 @@ export default function VerticalTabs() {
                                 className={classes.selectEmpty}
                             >
                                 <MenuItem value="">
-                                    <em>暂空</em>
+                                    <em>不选</em>
                                 </MenuItem>
                                 <MenuItem value={10}>中耳炎</MenuItem>
                                 <MenuItem value={20}>胆脂瘤</MenuItem>
@@ -231,16 +237,15 @@ export default function VerticalTabs() {
                             </Select>
                             <FormHelperText></FormHelperText>
                         </FormControl>
-                        <FormControl>
+                        <FormControl className={classes.formControl}>
+                            <TextField label="每数据源条数"
+                                       className={classes.textField}
+                                       InputLabelProps={{className: classes.label}}
+                                       InputProps={{className: classes.textInput}}
+                                       defaultValue={3}
 
+                            />
                         </FormControl>
-                        <TextField label="数据条数(单数据源)"
-                                   className={classes.textField}
-                                   InputLabelProps={{className: classes.label}}
-                                   InputProps={{className: classes.input}}
-                                   defaultValue={3}
-
-                        />
                     </div>
                     <div className={classes.buy}>
                         <Button variant="contained" className={classes.button}

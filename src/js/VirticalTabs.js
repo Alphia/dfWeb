@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: 24,
     },
     news: {
-        fontSize:'20px',
+        fontSize:'24px',
         margin:'30px 0 0 50px',
     },
     link:{

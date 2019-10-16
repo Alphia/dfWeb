@@ -73,10 +73,10 @@ class App extends React.Component {
                         <div className={classes.background}/>
                         <div className={classes.banner}>
                             <div className={classes.bannerRight}>
-                                <p className={classes.bannerP}>Welcome &nbsp;
+                                <p className={classes.bannerP}>您好，&nbsp;
                                     <b className={classes.bannerName}>{this.state.userName}</b>
                                 </p>
-                                <p className={classes.bannerP} onClick={this.logout}>Log out</p>
+                                <p className={classes.bannerP} onClick={this.logout}>登出</p>
                             </div>
                             <h2 className={classes.bannerTitle}>Data Federation Shop </h2>
                         </div>

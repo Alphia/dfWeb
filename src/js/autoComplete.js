@@ -347,14 +347,14 @@ export default function IntegrationReactSelect(props) {
                     styles={selectStyles}
                     inputId="react-select-multiple"
                     TextFieldProps={{
-                        label: 'Data Sources From:',
+                        label: '数据源',
                         InputLabelProps: {
                             htmlFor: 'react-select-multiple',
                             shrink: true,
                             className: classes.label,
                         },
                     }}
-                    placeholder="Select multiple Hospitals"
+                    placeholder="可多选"
                     options={suggestions}
                     components={components}
                     value={multi}

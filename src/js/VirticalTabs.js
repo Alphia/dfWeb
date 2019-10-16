@@ -151,12 +151,12 @@ export default function VerticalTabs() {
                 aria-label="Vertical tabs example"
                 className={classes.tabs}
             >
-                <Tab className={classes.tab} label="News" {...a11yProps(0)} />
-                <Tab className={classes.tab} label="Search & buy" {...a11yProps(1)} />
-                <Tab className={classes.tab} label="Orders" {...a11yProps(2)} />
-                <Tab className={classes.tab} label="Discount" {...a11yProps(3)} />
-                <Tab className={classes.tab} label="Community" {...a11yProps(4)} />
-                <Tab className={classes.tab} label="My Favorite" {...a11yProps(5)} />
+                <Tab className={classes.tab} label="新闻" {...a11yProps(0)} />
+                <Tab className={classes.tab} label="购买数据" {...a11yProps(1)} />
+                <Tab className={classes.tab} label="我的收藏" {...a11yProps(2)} />
+                <Tab className={classes.tab} label="我的订单" {...a11yProps(3)} />
+                <Tab className={classes.tab} label="特价商品" {...a11yProps(4)} />
+                <Tab className={classes.tab} label="社区" {...a11yProps(5)} />
             </Tabs>
             <TabPanel value={value} index={0}>
                 <div className={classes.news}>
@@ -174,9 +174,7 @@ export default function VerticalTabs() {
                     <div className={classes.criteria}>
                         <HospitalSelector/>
                         <FormControl className={classes.formControl}>
-                            <InputLabel className={classes.label} shrink htmlFor="dep-label-placeholder">
-                                Department
-                            </InputLabel>
+                            <InputLabel className={classes.label} shrink htmlFor="dep-label-placeholder">科室</InputLabel>
                             <Select
                                 value={depValues.dep}
                                 onChange={handleDepChange}
@@ -207,7 +205,7 @@ export default function VerticalTabs() {
                         </FormControl>
                         <FormControl className={classes.formControl}>
                             <InputLabel className={classes.label} shrink htmlFor="symptom-label-placeholder">
-                                Symptom
+                                症状
                             </InputLabel>
                             <Select
                                 value={symptomValues.symptom}
@@ -236,7 +234,7 @@ export default function VerticalTabs() {
                         <FormControl>
 
                         </FormControl>
-                        <TextField label="Rows Per Data Source"
+                        <TextField label="数据条数(单数据源)"
                                    className={classes.textField}
                                    InputLabelProps={{className: classes.label}}
                                    InputProps={{className: classes.input}}
@@ -246,7 +244,7 @@ export default function VerticalTabs() {
                     </div>
                     <div className={classes.buy}>
                         <Button variant="contained" className={classes.button}
-                                onClick={handlePurchase}>Purchase</Button>
+                                onClick={handlePurchase}>购买</Button>
                     </div>
                 </div>
                 <div className={classes.resultTable}>

@@ -79,8 +79,8 @@ class Logon extends React.Component {
                         InputLabelProps={{className: classes.label}}
                         value={this.state.username}
                         onChange={this.updateUsername}
-                        placeholder="Username"
-                        label="User Name"/>
+                        placeholder="字母与数字"
+                        label="用户"/>
                     <TextField
                         className={classes.textField}
                         InputProps={{className: classes.text}}
@@ -88,11 +88,11 @@ class Logon extends React.Component {
                         InputLabelProps={{className: classes.label}}
                         value={this.state.password}
                         onChange={this.updatePassword}
-                        placeholder="Password"
-                        label="Password"/>
+                        placeholder="字母与数字"
+                        label="密码"/>
                     <div className={classes.buttons}>
-                        <Button className={classes.button} onClick={this.props.logonHandler(this.state.username)}>Sign In</Button>
-                        <Button className={classes.button}>Sign Up</Button>
+                        <Button className={classes.button} onClick={this.props.logonHandler(this.state.username)}>登录</Button>
+                        <Button className={classes.button}>注册</Button>
                     </div>
                 </div>
             </div>

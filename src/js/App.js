@@ -3,8 +3,8 @@ import '../css/App.scss';
 import Logon from "./Logon";
 import LogonPic from "../pic/logon.jpg";
 import withStyles from "@material-ui/core/styles/withStyles";
-import HospitalSelector from "./HospitalSelector";
 import VirticalTabs from './VirticalTabs';
+
 const styles = {
     banner: {
         margin: '0 0 0 50px',
@@ -49,7 +49,7 @@ class App extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            hasLogon: true,
+            hasLogon: false,
             userName: "wang",
         }
     }

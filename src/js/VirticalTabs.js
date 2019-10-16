@@ -53,6 +53,14 @@ const useStyles = makeStyles(theme => ({
     tab: {
         fontSize: 24,
     },
+    news: {
+        fontSize:'20px',
+        margin:'30px 0 0 50px',
+    },
+    link:{
+        display: 'block',
+        marginBottom: '10px'
+    },
     tabPanel: {
         width: '80%',
         marginLeft: '50px'
@@ -108,6 +116,7 @@ export default function VerticalTabs() {
     const [resultValues, setResultValues] = React.useState({hasPurchase: false});
 
     const handlePurchase = () => {
+        alert("您确定以300元购买6条数据？当前余额6100元！");
         setResultValues(old => ({
             ...old,
             hasPurchase: true
@@ -142,14 +151,25 @@ export default function VerticalTabs() {
                 aria-label="Vertical tabs example"
                 className={classes.tabs}
             >
-                <Tab className={classes.tab} label="Search & buy" {...a11yProps(0)} />
-                <Tab className={classes.tab} label="History Orders" {...a11yProps(1)} />
-                <Tab className={classes.tab} label="Discount" {...a11yProps(2)} />
-                <Tab className={classes.tab} label="News" {...a11yProps(3)} />
+                <Tab className={classes.tab} label="News" {...a11yProps(0)} />
+                <Tab className={classes.tab} label="Search & buy" {...a11yProps(1)} />
+                <Tab className={classes.tab} label="Orders" {...a11yProps(2)} />
+                <Tab className={classes.tab} label="Discount" {...a11yProps(3)} />
                 <Tab className={classes.tab} label="Community" {...a11yProps(4)} />
                 <Tab className={classes.tab} label="My Favorite" {...a11yProps(5)} />
             </Tabs>
-            <TabPanel className={classes.tabPanel} value={value} index={0}>
+            <TabPanel value={value} index={0}>
+                <div className={classes.news}>
+                    <a className={classes.link} href="www.baidu.com">西京医院三个科室的病例数据已经接入Data Federation Shop</a>
+                    <a className={classes.link} href="www.baidu.com">唐都医院与Data Federation Shop达成合作意向</a>
+                    <a className={classes.link} href="www.baidu.com">交大一附院与Data Federation Shop签署战略合作</a>
+                    <a className={classes.link} href="www.baidu.com">西京医院三个科室的病例数据已经接入Data Federation Shop</a>
+                    <a className={classes.link} href="www.baidu.com">唐都医院与Data Federation Shop达成合作意向</a>
+                    <a className={classes.link} href="www.baidu.com">交大一附院与Data Federation Shop签署战略合作</a>
+
+                </div>
+            </TabPanel>
+            <TabPanel className={classes.tabPanel} value={value} index={1}>
                 <div className={classes.searchBox}>
                     <div className={classes.criteria}>
                         <HospitalSelector/>
@@ -233,9 +253,7 @@ export default function VerticalTabs() {
                     {resultValues.hasPurchase ? <CustomTable></CustomTable> : <React.Fragment></React.Fragment>}
                 </div>
             </TabPanel>
-            <TabPanel value={value} index={1}>
-                Item Two
-            </TabPanel>
+
             <TabPanel value={value} index={2}>
                 Item Three
             </TabPanel>

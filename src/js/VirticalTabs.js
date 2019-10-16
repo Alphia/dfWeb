@@ -6,6 +6,7 @@ import HospitalSelector from "./HospitalSelector";
 import {Tabs, Tab, Box, Typography, FormHelperText, FormControl, MenuItem, Select, InputLabel} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CustomTable from "./CustomTable"
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -58,7 +59,7 @@ const useStyles = makeStyles(theme => ({
     },
     searchBox: {
         margin: '0 0 0 0',
-        minHeight:'170px',
+        minHeight: '170px',
         height: '170px'
         // borderBottom: '1px solid'
     },
@@ -72,14 +73,14 @@ const useStyles = makeStyles(theme => ({
         display: 'inline-flex',
         minHeight: '170px',
     },
-    button:{
+    button: {
         width: '60%',
-        height:'40%',
-        fontSize:'30px',
-        left:'30%'
+        height: '40%',
+        fontSize: '30px',
+        left: '30%'
     },
     resultTable: {
-        marginTop:'20px',
+        marginTop: '20px',
         borderTop: '1px solid',
         // height: 500,
     },
@@ -102,9 +103,16 @@ const useStyles = makeStyles(theme => ({
 export default function VerticalTabs() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const [depValues, setDepValues] = React.useState({dep: '',});
+    const [depValues, setDepValues] = React.useState({dep: '', hasPurchase: false});
     const [symptomValues, setSymptomValues] = React.useState({symptom: '',});
+    const [resultValues, setResultValues] = React.useState({hasPurchase: false});
 
+    const handlePurchase = () => {
+        setResultValues(old => ({
+            ...old,
+            hasPurchase: true
+        }))
+    };
 
     const handleTaBsChange = (event, newValue) => {
         setValue(newValue);
@@ -162,18 +170,18 @@ export default function VerticalTabs() {
                                 className={clsx(classes.selectEmpty)}
                             >
                                 <MenuItem value="">
-                                    <em>None</em>
+                                    <em>暂空</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Ear-Nose-Throut</MenuItem>
-                                <MenuItem value={20}>Urology</MenuItem>
-                                <MenuItem value={30}>Dermatology</MenuItem>
-                                <MenuItem value={40}>Hematology</MenuItem>
-                                <MenuItem value={50}>Anesthesiology</MenuItem>
-                                <MenuItem value={60}>Cardiology</MenuItem>
-                                <MenuItem value={70}>Psychiatry</MenuItem>
-                                <MenuItem value={80}>Dermatology</MenuItem>
-                                <MenuItem value={90}>Neurology</MenuItem>
-                                <MenuItem value={91}>Oncology</MenuItem>
+                                <MenuItem value={10}>耳鼻喉</MenuItem>
+                                <MenuItem value={20}>口腔</MenuItem>
+                                <MenuItem value={30}>心脏内科</MenuItem>
+                                <MenuItem value={40}>心脏外科</MenuItem>
+                                <MenuItem value={50}>肠胃科</MenuItem>
+                                <MenuItem value={60}>血液科</MenuItem>
+                                <MenuItem value={70}>消化外科</MenuItem>
+                                <MenuItem value={80}>消化内科</MenuItem>
+                                <MenuItem value={90}>神经科</MenuItem>
+                                <MenuItem value={91}>心身科</MenuItem>
                             </Select>
                             <FormHelperText></FormHelperText>
                         </FormControl>
@@ -194,11 +202,13 @@ export default function VerticalTabs() {
                                 className={classes.selectEmpty}
                             >
                                 <MenuItem value="">
-                                    <em>None</em>
+                                    <em>暂空</em>
                                 </MenuItem>
-                                <MenuItem value={10}>Ear-Nose-Throut</MenuItem>
-                                <MenuItem value={20}>Urology</MenuItem>
-                                <MenuItem value={30}>Dermatology</MenuItem>
+                                <MenuItem value={10}>中耳炎</MenuItem>
+                                <MenuItem value={20}>胆脂瘤</MenuItem>
+                                <MenuItem value={30}>耵聍堵塞</MenuItem>
+                                <MenuItem value={30}>听小骨坏死</MenuItem>
+                                <MenuItem value={30}>骨膜受损</MenuItem>
 
                             </Select>
                             <FormHelperText></FormHelperText>
@@ -210,16 +220,17 @@ export default function VerticalTabs() {
                                    className={classes.textField}
                                    InputLabelProps={{className: classes.label}}
                                    InputProps={{className: classes.input}}
-                                   defaultValue={5}
+                                   defaultValue={3}
 
                         />
                     </div>
                     <div className={classes.buy}>
-                        <Button variant="contained" className={classes.button}>Purchase</Button>
+                        <Button variant="contained" className={classes.button}
+                                onClick={handlePurchase}>Purchase</Button>
                     </div>
                 </div>
                 <div className={classes.resultTable}>
-
+                    {resultValues.hasPurchase ? <CustomTable></CustomTable> : <React.Fragment></React.Fragment>}
                 </div>
             </TabPanel>
             <TabPanel value={value} index={1}>

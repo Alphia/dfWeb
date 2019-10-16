@@ -8,7 +8,13 @@ const styles = {
         marginBottom: '20px'
     }
 };
-const suggestions=[{label: 'Xijing Hospital'}, {label: 'Jiaoda First Hospital'}];
+const suggestions = [
+    {label: '西京医院'},
+    {label: '唐都医院'},
+    {label: '西安中医院'},
+    {label: '交大一附院'},
+    {label: '交大二附院'}
+    ];
 class HospitalSelector extends React.Component {
     constructor(props, context) {
         super(props, context);

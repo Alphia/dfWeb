@@ -3,11 +3,10 @@ import '../css/App.scss';
 import Logon from "./Logon";
 import LogonPic from "../pic/logon.jpg";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Selector from "./Selector";
-
-
+import HospitalSelector from "./HospitalSelector";
+import VirticalTabs from './VirticalTabs';
 const styles = {
-    banner:{
+    banner: {
         margin: '0 0 0 50px',
         fontSize: '30px',
     },
@@ -32,10 +31,15 @@ const styles = {
         right: 0,
         zIndex: -1,
     },
-    bannerTitle:{
-        margin:'50px 0 0 0',
+    bannerTitle: {
+        margin: '50px 0 0 0',
         fontSize: '80px',
         color: 'rgb(0,100,180,0.7)'
+    },
+    divider: {
+        height: 30,
+        borderBottom: '2px solid',
+        marginBottom: '45px'
     }
 };
 
@@ -77,9 +81,11 @@ class App extends React.Component {
                             <h2 className={classes.bannerTitle}>Data Federation Shop </h2>
                         </div>
 
-                        <div className='panel'>
-                        </div>
-                        <Selector></Selector>
+                        <div className={classes.divider}></div>
+                        <VirticalTabs/>
+                        {/*<div>*/}
+                        {/*    <HospitalSelector suggestions={{label: 'Xijing Hospital'}, {label: 'Jiaoda First Hospital'}}/>*/}
+                        {/*</div>*/}
 
                     </div>) : <Logon logonHandler={this.logon}/>}
             </React.Fragment>)

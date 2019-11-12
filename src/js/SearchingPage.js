@@ -3,6 +3,7 @@ import SearchingBox from "./SearchingBox";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
 import HotData from "./HotData";
+import QuickSearch from "./QuickSearch";
 
 
 const styles = {
@@ -24,6 +25,7 @@ class SearchingPage extends React.Component {
             <Paper className={classes.paper}>
                 <SearchingBox/>
                 <HotData classNmae={classes.hotData}/>
+                <QuickSearch/>
             </Paper>
         )
     }

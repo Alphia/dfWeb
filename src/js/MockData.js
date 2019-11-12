@@ -1,4 +1,4 @@
-const modelList = [
+const hotDataModelList = [
     {
         media: {
             imgUrl: '/img/eye.jpg',
@@ -45,4 +45,6 @@ const modelList = [
     }
 ];
 
-export {modelList}
+const quickSearchModelList = [];
+
+export {quickSearchModelList,hotDataModelList}

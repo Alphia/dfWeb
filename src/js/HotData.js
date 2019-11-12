@@ -1,7 +1,7 @@
 import React from "react";
 import MediaCard from "./MediaCard";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {modelList} from './MockData'
+import {hotDataModelList} from './MockData'
 
 const styles = {
     root: {
@@ -33,7 +33,7 @@ class HotData extends React.Component {
                     <p className={classes.title}>热门数据</p>
                 </div>
                 <div className={classes.cards}>
-                    {modelList.map(model => <MediaCard model={model}/>)}
+                    {hotDataModelList.map(model => <MediaCard model={model}/>)}
                 </div>
             </div>
         )

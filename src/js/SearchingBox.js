@@ -14,7 +14,8 @@ const styles = {
         padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: '100%',
+        width: '80%',
+        margin: 'auto',
         '& svg': {
             fontSize: '2rem',
         }
@@ -49,22 +50,24 @@ class SearchingBox extends React.Component {
 
     render() {
         const {classes} = this.props;
-        return <Paper component="form" className={classes.root}>
-            <Select className={classes.select} value={this.state.selectedValue}
-                    onChange={ev => this.setState({selectedValue: ev.target.value})}>
-                <MenuItem value={10}>数据名称</MenuItem>
-                <MenuItem value={20}>数据来源</MenuItem>
-            </Select>
-            <Divider className={classes.divider} orientation="vertical"/>
-            <InputBase
-                className={classes.input}
-                placeholder={this.state.selectedValue===10? '请输入数据名称，如"眼疾"': '请输入数据来源，如"西京医院"'}
-            />
-            <Divider className={classes.divider} orientation="vertical"/>
-            <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <SearchIcon/>
-            </IconButton>
-        </Paper>
+        return (
+            <Paper component="form" className={classes.root}>
+                <Select className={classes.select} value={this.state.selectedValue}
+                        onChange={ev => this.setState({selectedValue: ev.target.value})}>
+                    <MenuItem value={10}>数据名称</MenuItem>
+                    <MenuItem value={20}>数据来源</MenuItem>
+                </Select>
+                <Divider className={classes.divider} orientation="vertical"/>
+                <InputBase
+                    className={classes.input}
+                    placeholder={this.state.selectedValue === 10 ? '请输入数据名称，如"眼疾"' : '请输入数据来源，如"西京医院"'}
+                />
+                <Divider className={classes.divider} orientation="vertical"/>
+                <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                    <SearchIcon/>
+                </IconButton>
+            </Paper>
+        )
     }
 }
 

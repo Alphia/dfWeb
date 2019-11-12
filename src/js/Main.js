@@ -1,5 +1,4 @@
 import React from "react";
-import VerticalTabs from "./VerticalTabs";
 import Header from "./Header";
 import TabPanel from "./TabPanel";
 import SearchingPage from "./SearchingPage";
@@ -31,7 +30,6 @@ class Main extends React.Component {
                 <TabPanel value={this.state.tabValue} index={2}>
                     Item Three
                 </TabPanel>
-                <VerticalTabs/>
             </div>
         )
     }

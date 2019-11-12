@@ -55,14 +55,12 @@ class Header extends React.Component {
     }
 
     handleChange = (event, newValue) => {
-        console.log("newValue:", newValue);
         this.setState({value: newValue});
         this.props.onTabChange(newValue);
     };
 
     render() {
         const {classes} = this.props;
-        console.log(classes);
         return (
             <div className={cls(classes.banner, classes.back)}>
                 <div className={cls(classes.banner, classes.right)}>

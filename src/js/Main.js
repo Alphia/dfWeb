@@ -2,6 +2,7 @@ import React from "react";
 import VerticalTabs from "./VerticalTabs";
 import Header from "./Header";
 import TabPanel from "./TabPanel";
+import SearchingPage from "./SearchingPage";
 
 class Main extends React.Component {
 
@@ -13,7 +14,7 @@ class Main extends React.Component {
         }
     }
 
-    handleTabChange = (value) =>{
+    handleTabChange = (value) => {
         this.setState({tabValue: value})
     };
 
@@ -22,6 +23,7 @@ class Main extends React.Component {
             <div>
                 <Header userName={this.state.userName} onTabChange={this.handleTabChange}/>
                 <TabPanel value={this.state.tabValue} index={0}>
+                    <SearchingPage/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
                     Item Two

@@ -11,12 +11,15 @@ import Card from "@material-ui/core/Card";
 
 const styles = {
     card: {
-        width: 272.5,
+        width: 265,
         marginLeft: '3rem',
         boxSizing: 'border-box',
     },
     media: {
-        height: 140,
+        height: 180,
+        '& img':{
+            backgroundColor:"rgb(234, 237, 237)"
+        }
     },
 };
 
@@ -40,7 +43,7 @@ class MediaCard extends React.Component {
                         <Typography gutterBottom variant="h4" component="h2">
                             {model.content.title}
                         </Typography>
-                        <Typography variant="body3" color="textSecondary" component="p">
+                        <Typography variant="inherit" color="textSecondary" component="p">
                             {model.content.introduction}
                         </Typography>
                     </CardContent>

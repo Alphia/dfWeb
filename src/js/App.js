@@ -2,6 +2,13 @@ import React from 'react';
 import '../css/App.scss';
 import Logon from "./Logon";
 import Main from "./Main";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+const styles={
+    root:{
+        backgroundColor:"rgb(234, 237, 237)"
+    }
+};
 
 class App extends React.Component {
 
@@ -22,16 +29,17 @@ class App extends React.Component {
     };
 
     render() {
+        const {classes} = this.props;
         return (
-            <React.Fragment>
+            <div className={classes.root}>
                 {this.state.isStranger
                     ?
                     <Logon logonHandler={this.logon}/>
                     :
                     <Main userName={this.state.userName} logoutHandler={this.logout}/>
                 }
-            </React.Fragment>)
+            </div>)
     }
 }
 
-export default App;
+export default withStyles(styles)(App);

@@ -7,10 +7,14 @@ import QuickSearch from "./QuickSearch";
 
 
 const styles = {
-    paper: {
+    root: {
         maxWidth: '1180px',
         margin: 'auto',
-        padding: 'auto'
+        padding: '0'
+    },
+    paper: {
+        margin:'3rem auto',
+        padding: '1.5rem',
     },
     hotData: {
         // margin: 'auto'
@@ -22,11 +26,17 @@ class SearchingPage extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <Paper className={classes.paper}>
-                <SearchingBox/>
-                <HotData classNmae={classes.hotData}/>
-                <QuickSearch/>
-            </Paper>
+            <div className={classes.root}>
+                <Paper className={classes.paper}>
+                    <SearchingBox/>
+                </Paper>
+                <Paper className={classes.paper}>
+                    <HotData classNmae={classes.hotData}/>
+                </Paper>
+                <Paper className={classes.paper}>
+                    <QuickSearch/>
+                </Paper>
+            </div>
         )
     }
 }

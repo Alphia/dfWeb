@@ -6,11 +6,10 @@ import cls from 'classnames';
 
 const styles = {
     back: {
-        backgroundColor: 'rgba(188,187,189,0.7)',
+        backgroundColor: 'rgba(188,187,189,0.15)',
     },
     banner: {
         margin: '0 0 0 0',
-        height: '6.4rem',
         '& $right': {
             float: 'right',
             display: 'block',
@@ -21,7 +20,6 @@ const styles = {
         '& $left': {
             display: 'inline-block',
             padding: '1.1rem 1.2rem',
-            height: '6.4rem',
             '& p': {
                 display: 'inline-block',
                 fontSize: '2.4rem',

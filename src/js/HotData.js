@@ -5,8 +5,7 @@ import {hotDataModelList} from './MockData'
 
 const styles = {
     root: {
-        margin: '3rem 0',
-
+        // margin: '3rem 0',
     },
     title: {
         margin: '1rem 0',
@@ -33,7 +32,7 @@ class HotData extends React.Component {
                     <p className={classes.title}>热门数据</p>
                 </div>
                 <div className={classes.cards}>
-                    {hotDataModelList.map(model => <MediaCard model={model}/>)}
+                    {hotDataModelList.map(model => <MediaCard key={model.id} model={model}/>)}
                 </div>
             </div>
         )

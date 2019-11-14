@@ -1,9 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
-import HotData from "./HotData";
-import QuickSearch from "./QuickSearch";
-
+import ListingBox from "./ListingBox";
 
 const styles = {
     root: {
@@ -17,21 +15,18 @@ const styles = {
     },
 };
 
-class SearchingPage extends React.Component {
+class Listing extends React.Component {
 
     render() {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
                 <Paper className={classes.paper}>
-                    <HotData/>
-                </Paper>
-                <Paper className={classes.paper}>
-                    <QuickSearch/>
+                    <ListingBox/>
                 </Paper>
             </div>
         )
     }
 }
 
-export default withStyles(styles)(SearchingPage);
+export default withStyles(styles)(Listing);

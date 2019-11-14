@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import TabPanel from "./TabPanel";
-import SearchingPage from "./SearchingPage";
+import HomeTab from "./HomeTab";
 import Bottom from "./Footer";
 
 class Main extends React.Component {
@@ -11,6 +11,7 @@ class Main extends React.Component {
         this.state = {
             userName: this.props.userName,
             tabValue: 0,
+            content: 'landing'
         }
     }
 
@@ -21,9 +22,10 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <Header userName={this.state.userName} onTabChange={this.handleTabChange}/>
+                <Header userName={this.state.userName} onTabChange={this.handleTabChange}
+                        onSearch={()=>this.setState({content: 'listing'})}/>
                 <TabPanel value={this.state.tabValue} index={0}>
-                    <SearchingPage/>
+                    <HomeTab content={this.state.content}/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
                     Item Two

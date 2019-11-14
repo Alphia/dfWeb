@@ -20,18 +20,18 @@ const styles = {
     },
     select: {
         fontSize: '1.8rem',
-        paddingLeft:'0.8rem',
+        paddingLeft: '0.8rem',
         '&:before': {
             borderBottom: '0'
         },
     },
-    item:{
+    item: {
         fontSize: '1.6rem',
     },
     input: {
         flex: 1,
         fontSize: '1.8rem',
-        paddingLeft:'0.8rem',
+        paddingLeft: '0.8rem',
     },
     iconButton: {
         padding: 10,
@@ -43,6 +43,11 @@ const styles = {
 };
 
 class SearchingBox extends React.Component {
+
+    search = () => {
+        this.props.onSearch();
+    };
+
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -65,7 +70,7 @@ class SearchingBox extends React.Component {
                     placeholder={this.state.selectedValue === 10 ? '请输入数据名称，如"眼疾"' : '请输入数据来源，如"西京医院"'}
                 />
                 <Divider className={classes.divider} orientation="vertical"/>
-                <IconButton type="submit" className={classes.iconButton} aria-label="search">
+                <IconButton type="button" className={classes.iconButton} aria-label="search" onClick={this.search}>
                     <SearchIcon/>
                 </IconButton>
             </Paper>

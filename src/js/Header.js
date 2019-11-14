@@ -53,8 +53,8 @@ const styles = {
             fontSize: '2rem',
         },
     },
-    searchBoxWrapper:{
-        margin:'2rem 0 1rem 0',
+    searchBoxWrapper: {
+        margin: '2rem 0 1rem 0',
     }
 };
 
@@ -71,6 +71,10 @@ class Header extends React.Component {
     handleChange = (event, newValue) => {
         this.setState({value: newValue});
         this.props.onTabChange(newValue);
+    };
+
+    onSearch = () => {
+        this.props.onSearch()
     };
 
     render() {
@@ -104,7 +108,7 @@ class Header extends React.Component {
                         <p>数据商店，开启你的数据资产之路</p>
                     </div>
                     <div className={classes.searchBoxWrapper}>
-                        <SearchingBox/>
+                        <SearchingBox onSearch={this.props.onSearch}/>
                     </div>
                     <p>a</p>
                 </div>

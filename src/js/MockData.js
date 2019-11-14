@@ -139,5 +139,6 @@ const qsCompetitionModelList = [
     },
 ];
 
+const listingModel=[];
 
-export {qsHospitalModelList, qsCompetitionModelList, hotDataModelList}
+export {qsHospitalModelList, qsCompetitionModelList, hotDataModelList, listingModel}

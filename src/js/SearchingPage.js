@@ -1,5 +1,4 @@
 import React from "react";
-import SearchingBox from "./SearchingBox";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
 import HotData from "./HotData";
@@ -16,9 +15,6 @@ const styles = {
         margin:'3rem auto',
         padding: '1.5rem',
     },
-    hotData: {
-        // margin: 'auto'
-    }
 };
 
 class SearchingPage extends React.Component {
@@ -28,10 +24,7 @@ class SearchingPage extends React.Component {
         return (
             <div className={classes.root}>
                 <Paper className={classes.paper}>
-                    <SearchingBox/>
-                </Paper>
-                <Paper className={classes.paper}>
-                    <HotData classNmae={classes.hotData}/>
+                    <HotData/>
                 </Paper>
                 <Paper className={classes.paper}>
                     <QuickSearch/>

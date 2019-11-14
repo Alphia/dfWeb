@@ -11,31 +11,33 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
     root: {
-        padding: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: '80%',
-        margin: 'auto',
+        width: '100%',
         '& svg': {
             fontSize: '2rem',
         }
     },
     select: {
-        fontSize: '3rem',
+        fontSize: '1.8rem',
+        paddingLeft:'0.8rem',
         '&:before': {
             borderBottom: '0'
         },
     },
+    item:{
+        fontSize: '1.6rem',
+    },
     input: {
         flex: 1,
-        fontSize: '3rem',
-
+        fontSize: '1.8rem',
+        paddingLeft:'0.8rem',
     },
     iconButton: {
         padding: 10,
     },
     divider: {
-        height: 28,
+        height: '2rem',
         margin: 4,
     },
 };
@@ -51,11 +53,11 @@ class SearchingBox extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <Paper component="form" className={classes.root}>
+            <Paper component="div" className={classes.root}>
                 <Select className={classes.select} value={this.state.selectedValue}
                         onChange={ev => this.setState({selectedValue: ev.target.value})}>
-                    <MenuItem value={10}>数据名称</MenuItem>
-                    <MenuItem value={20}>数据来源</MenuItem>
+                    <MenuItem className={classes.item} value={10}>数据名称</MenuItem>
+                    <MenuItem className={classes.item} value={20}>数据来源</MenuItem>
                 </Select>
                 <Divider className={classes.divider} orientation="vertical"/>
                 <InputBase

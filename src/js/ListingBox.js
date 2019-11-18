@@ -1,6 +1,6 @@
 import React from "react";
 import {listingModel} from "./MockData";
-import MediaCard from "./MediaCard";
+import ListingCard from "./ListingCard";
 
 
 
@@ -8,7 +8,7 @@ class ListingBox extends React.Component {
     render() {
         return(
             <div >
-                {listingModel.map(item=><MediaCard/>)}
+                {listingModel.map(model=><ListingCard model={model}/>)}
             </div>
         )
     }

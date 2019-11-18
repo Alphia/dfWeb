@@ -11,7 +11,7 @@ class Main extends React.Component {
         this.state = {
             userName: this.props.userName,
             tabValue: 0,
-            content: 'landing'
+            content: 'listing'
         }
     }
 

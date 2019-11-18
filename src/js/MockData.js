@@ -139,6 +139,26 @@ const qsCompetitionModelList = [
     },
 ];
 
-const listingModel=[];
+const listingModel = [
+    {
+        id: 3,
+        imgUrl: 'img/eye.jpg',
+        name: '西京医院白内障ct数据',
+        size: '127.4g',
+        dataType: '标注数据',
+        format: 'dcm',
+        symptom: '白内障',
+        department: '眼科',
+        amount: '14273',
+        start: '2010-2-26',
+        end: '2019-6-30',
+        stars: 4.6,
+        price: 20000,
+        publisher: '西京医院',
+        soldAmount: 28,
+        latestMonthSold: 3,
+    },
+];
+
 
 export {qsHospitalModelList, qsCompetitionModelList, hotDataModelList, listingModel}

@@ -36,7 +36,7 @@ class HomeTab extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-                {!isShowing("landing") && <div>
+                {isShowing("landing") && <div>
                     <Paper className={classes.paper}>
                         <HotData/>
                     </Paper>
@@ -44,7 +44,7 @@ class HomeTab extends React.Component {
                         <QuickSearch/>
                     </Paper>
                 </div>}
-                {!isShowing("listing") && <div>
+                {isShowing("listing") && <div>
                     <Listing/>
                 </div>}
             </div>

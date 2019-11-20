@@ -5,6 +5,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
     listRoot: {
+        maxWidth: '1180px',
+        margin: 'auto',
+        padding: '0',
         '& >div': {
             marginBottom: '1rem',
         },
@@ -21,7 +24,11 @@ class ListingBox extends React.Component {
         return (
             <div className={classes.listRoot}>
                 <p className={classes.resultTip}>23项数据来源为"西京医院"的搜索结果：</p>
-                {listingModel.map(model => <ListingCard model={model}/>)}
+                {listingModel.map(
+                    model => <ListingCard key={model.id}
+                        viewItem={(id)=>this.props.viewItem(id)}
+                        model={model}
+                    />)}
             </div>
         )
     }

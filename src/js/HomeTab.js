@@ -2,9 +2,9 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
 import HotData from "./HotData";
-import cls from 'classnames';
 import QuickSearch from "./QuickSearch";
-import Listing from "./Listing";
+import ListingBox from "./ListingBox";
+import ItemBox from "./ItemBox";
 
 
 const styles = {
@@ -27,25 +27,43 @@ class HomeTab extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            currentContent: "landing"
+            content: "landing",
+            itemId: 1
         }
     }
 
+    viewItem = (id) => {
+        this.setState({
+            content: 'item',
+            itemId: id,
+        })
+    };
+
+    view = (content) => (id=null) => {
+        this.setState({
+            content: content,
+            itemId: id
+        })
+    };
+
     render() {
-        const isShowing = content => content === this.props.content;
         const {classes} = this.props;
+        const isShowing = content => content === this.state.content;
         return (
             <div className={classes.root}>
                 {isShowing("landing") && <div>
                     <Paper className={classes.paper}>
-                        <HotData/>
+                        <HotData viewItem={this.view('item')}/>
                     </Paper>
                     <Paper className={classes.paper}>
                         <QuickSearch/>
                     </Paper>
                 </div>}
                 {isShowing("listing") && <div>
-                    <Listing/>
+                    <ListingBox viewItem={this.view('item')}/>
+                </div>}
+                {isShowing("item") && <div>
+                    <ItemBox id={this.state.itemId}/>
                 </div>}
             </div>
         )

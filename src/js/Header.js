@@ -81,7 +81,6 @@ class Header extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.back}>
-                {/*<div className={cls(classes.banner, classes.back)}>*/}
                 <div className={classes.bannerWrapper}>
                     <div className={cls(classes.bannerRight, classes.selected)}>
                         <Tabs

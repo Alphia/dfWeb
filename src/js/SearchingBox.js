@@ -44,10 +44,6 @@ const styles = {
 
 class SearchingBox extends React.Component {
 
-    search = () => {
-        this.props.onSearch();
-    };
-
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -70,7 +66,7 @@ class SearchingBox extends React.Component {
                     placeholder={this.state.selectedValue === 10 ? '请输入数据名称，如"眼疾"' : '请输入数据来源，如"西京医院"'}
                 />
                 <Divider className={classes.divider} orientation="vertical"/>
-                <IconButton type="button" className={classes.iconButton} aria-label="search" onClick={this.search}>
+                <IconButton type="button" className={classes.iconButton} aria-label="search" onClick={this.props.onSearch}>
                     <SearchIcon/>
                 </IconButton>
             </Paper>

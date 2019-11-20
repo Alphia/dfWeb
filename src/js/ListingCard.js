@@ -98,6 +98,7 @@ class ListingCard extends React.Component {
             <Card className={classes.card}>
 
                 <CardMedia
+                    onClick={()=>this.props.viewItem(model.id)}
                     className={classes.media}
                     image={model.imgUrl}
                     component='div'/>
@@ -105,7 +106,7 @@ class ListingCard extends React.Component {
                 <div className={classes.summary}>
 
                     <div className={classes.title}>
-                        <h3>{model.name}</h3>
+                        <h3 onClick={()=>this.props.viewItem(model.id)}>{model.name}</h3>
                         <div className={classes.stars}>
                             <p/>
                             <span>{model.stars} of <b>{model.soldAmount}</b></span>

@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import HotData from "./HotData";
 import QuickSearch from "./QuickSearch";
 import ListingBox from "./ListingBox";
-import ItemBox from "./ItemBox";
+import ItemBox from "./item/ItemBox";
 
 
 const styles = {
@@ -27,7 +27,7 @@ class HomeTab extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            content: "landing",
+            content: "item",
             itemId: 1
         }
     }
@@ -39,7 +39,7 @@ class HomeTab extends React.Component {
         })
     };
 
-    view = (content) => (id=null) => {
+    view = (content) => (id = null) => {
         this.setState({
             content: content,
             itemId: id

@@ -1,12 +1,10 @@
-import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button/index";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CardMedia from "@material-ui/core/CardMedia";
-import Card from "@material-ui/core/Card";
-import {itemModelList} from "./MockData";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import TabPanel from "./TabPanel";
+import CardMedia from "@material-ui/core/CardMedia/index";
+import Card from "@material-ui/core/Card/index";
+import {itemModelList} from "../MockData";
+import ItemDetail from "./ItemDetail";
 
 const styles = {
     itemRoot: {
@@ -100,35 +98,7 @@ class ItemBox extends React.Component {
                         </div>
                     </div>
                     <div>
-                        <Tabs value={this.state.tabValue}
-                              onChange={this.handleTabChange} indicatorColor="primary" textColor="primary" centered>
-                            <Tab label="详情"/>
-                            <Tab label="评价"/>
-                        </Tabs>
-
-                        <TabPanel value={this.state.tabValue} index={0}>
-                            <div>
-                                <p>抽样数据</p>
-
-                            </div>
-                            <div>
-                                <p>统计特征</p>
-                            </div>
-                            <div>
-                                <p>使用示例</p>
-                            </div>
-                        </TabPanel>
-                        <TabPanel value={this.state.tabValue} index={1}>
-                            <div>
-                                统计特征：1
-                            </div>
-                            <div>
-                                抽样数据：2
-                            </div>
-                            <div>
-                                使用示例：3
-                            </div>
-                        </TabPanel>
+                        <ItemDetail/>
                     </div>
                 </Card>
             </div>

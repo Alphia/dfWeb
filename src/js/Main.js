@@ -12,7 +12,6 @@ class Main extends React.Component {
         this.state = {
             userName: this.props.userName,
             tabValue: 0,
-            content: 'landing'
         }
     }
 
@@ -20,7 +19,7 @@ class Main extends React.Component {
         this.setState({tabValue: value})
     };
 
-    handleSearch=()=>this.homeRef.current.view('listing')();
+    handleSearch = () => this.homeRef.current.view('listing')();
 
     render() {
         return (
@@ -28,7 +27,7 @@ class Main extends React.Component {
                 <Header userName={this.state.userName} onTabChange={this.handleTabChange}
                         onSearch={this.handleSearch}/>
                 <TabPanel value={this.state.tabValue} index={0}>
-                    <HomeTab content={this.state.content} ref={this.homeRef}/>
+                    <HomeTab ref={this.homeRef}/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
                     Item Two

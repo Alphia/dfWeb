@@ -4,6 +4,7 @@ import Tabs from "@material-ui/core/Tabs/index";
 import Tab from "@material-ui/core/Tab/index";
 import TabPanel from "../TabPanel";
 import ItemStatisticsTable from "./ItemStatisticsTable";
+import ItemSampleTable from "./ItemSampleTable";
 
 const styles = {
     root: {
@@ -52,6 +53,7 @@ class ItemDetail extends React.Component {
                 <div className={classes.tabPanels}>
                     <TabPanel value={this.state.tabValue} index={0}>
                         <div className={classes.table}>
+                            <ItemSampleTable/>
                             <ItemStatisticsTable/>
                         </div>
                     </TabPanel>

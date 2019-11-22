@@ -17,14 +17,20 @@ const styles = {
         fontSize: '1.6rem',
         borderLeft: 'solid 1px rgb(214, 217, 217)',
         borderBottom: 'solid 1px rgb(214, 217, 217)',
+        '& tr': {
+            '& :first-child': {
+                fontWeight: 'bold',
+            }
+        },
         '& th': {
             padding: '0.2rem 1rem',
         },
         '& td, th': {
-            minWidth: '8rem',
+            minWidth: '12rem',
             boxSizing: 'border-box',
             borderRight: 'solid 1px rgb(214, 217, 217)',
             borderTop: 'solid 1px rgb(214, 217, 217)',
+            textAlign: 'center',
         },
         firstColBold: {
             fontStyle: 'bold',
@@ -37,17 +43,17 @@ class ItemStatisticsTable extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.isWrapper}>
-                <p>统计学特征：</p>
+                <p>统计学特征</p>
                 <table className={classes.isTableRoot}>
                     <thead>
                     <col className={classes.firstColBold}/>
                     <tr>
                         <th rowSpan={2}>统计项</th>
-                        <th rowSpan={2}>最大值</th>
                         <th rowSpan={2}>最小值</th>
+                        <th rowSpan={2}>最大值</th>
                         <th rowSpan={2}>平均值</th>
                         <th rowSpan={2}>标准差</th>
-                        <th colSpan="4">分布区间</th>
+                        <th colSpan={4}>分布区间</th>
                     </tr>
                     <tr>
                         <th>0~25%</th>

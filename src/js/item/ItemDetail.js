@@ -5,6 +5,7 @@ import Tab from "@material-ui/core/Tab/index";
 import TabPanel from "../TabPanel";
 import ItemStatisticsTable from "./ItemStatisticsTable";
 import ItemSampleTable from "./ItemSampleTable";
+import ItemDescription from "./ItemDescription";
 
 const styles = {
     root: {
@@ -12,7 +13,7 @@ const styles = {
     },
     tabsWrapper: {
         marginLeft: '0rem',
-        borderBottom: 'solid 1px rgb(234, 237, 237)',
+        borderBottom: 'solid 1px rgb(214, 217, 217)',
         '& button': {
             minWidth: '4rem'
         },
@@ -47,12 +48,13 @@ class ItemDetail extends React.Component {
                     <Tabs value={this.state.tabValue} onChange={this.handleTabChange} indicatorColor="primary"
                           textColor="primary" variant="standard" aria-label="full width tabs example">
                         <Tab label="数据详情"/>
-                        <Tab label="评价"/>
+                        <Tab label="评价(28)"/>
                     </Tabs>
                 </div>
                 <div className={classes.tabPanels}>
                     <TabPanel value={this.state.tabValue} index={0}>
                         <div className={classes.table}>
+                            <ItemDescription/>
                             <ItemSampleTable/>
                             <ItemStatisticsTable/>
                         </div>

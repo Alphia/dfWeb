@@ -14,9 +14,9 @@ const styles = {
 
     },
     isTableRoot: {
-        fontSize: '1.6rem',
-        borderLeft: 'solid 1px rgb(214, 217, 217)',
-        borderBottom: 'solid 1px rgb(214, 217, 217)',
+        width: '1080px',
+        fontSize: '1.5rem',
+        border: 'solid 1px rgb(234, 237, 237)',
         '& tr': {
             '& :first-child': {
                 fontWeight: 'bold',
@@ -28,8 +28,7 @@ const styles = {
         '& td, th': {
             minWidth: '12rem',
             boxSizing: 'border-box',
-            borderRight: 'solid 1px rgb(214, 217, 217)',
-            borderTop: 'solid 1px rgb(214, 217, 217)',
+            border: 'solid 0.5px rgb(234, 237, 237)',
             textAlign: 'center',
         },
         firstColBold: {

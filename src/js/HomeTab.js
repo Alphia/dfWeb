@@ -27,7 +27,7 @@ class HomeTab extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            content: "item",
+            content: "landing",
             itemId: 1
         }
     }

@@ -45,10 +45,6 @@ class ItemBox extends React.Component {
         }
     }
 
-    handleTabChange = (ev, value) => {
-        this.setState({tabValue: value});
-    };
-
     render() {
         const {classes} = this.props;
         const model = itemModelList[this.props.id];
@@ -75,24 +71,7 @@ class ItemBox extends React.Component {
                             <span><b>{model.price}</b>元</span>
                         </div>
 
-                        <div className={classes.content}>
-                            <div>
-                                <p>来源：{model.publisher}</p>
-                                <p>科室：{model.department}</p>
-                                <p>病症：{model.symptom}</p>
 
-                            </div>
-                            <div>
-                                <p>类型：{model.dataType}</p>
-                                <p>数量：{model.amount}</p>
-                                <p>格式：{model.format}</p>
-                            </div>
-                            <div>
-                                <p>大小：{model.size}</p>
-                                <p>历史购买次数：{model.soldAmount}</p>
-                                <p>最近一月购买次数：{model.latestMonthSold}</p>
-                            </div>
-                        </div>
                         <div className={classes.buy}>
                             <Button variant="outlined" color="primary">购买</Button>
                         </div>

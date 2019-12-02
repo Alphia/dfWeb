@@ -5,7 +5,7 @@ import HotData from "./HotData";
 import QuickSearch from "./QuickSearch";
 import ListingBox from "./ListingBox";
 import ItemBox from "./item/ItemBox";
-
+import SearchingBox from "./SearchingBox";
 
 const styles = {
     root: {
@@ -14,11 +14,15 @@ const styles = {
         padding: '0'
     },
     paper: {
-        margin: '3rem auto',
+        margin: '0.5rem auto',
         padding: '1.5rem',
     },
     hidden: {
         visibility: 'hidden'
+    },
+
+    searchBoxWrapper: {
+        margin: '0rem 0 0 0',
     }
 };
 
@@ -31,6 +35,10 @@ class HomeTab extends React.Component {
             itemId: 1
         }
     }
+
+    onSearch = () => {
+        this.props.onSearch()
+    };
 
     viewItem = (id) => {
         this.setState({
@@ -51,6 +59,12 @@ class HomeTab extends React.Component {
         const isShowing = content => content === this.state.content;
         return (
             <div className={classes.root}>
+                <Paper className={classes.paper}>
+                    <div className={classes.searchBoxWrapper}>
+                        <SearchingBox onSearch={this.props.onSearch}/>
+                    </div>
+                </Paper>
+
                 {isShowing("landing") && <div>
                     <Paper className={classes.paper}>
                         <HotData viewItem={this.view('item')}/>

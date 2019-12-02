@@ -24,10 +24,9 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <Header userName={this.state.userName} onTabChange={this.handleTabChange}
-                        onSearch={this.handleSearch}/>
+                <Header userName={this.state.userName} onTabChange={this.handleTabChange}/>
                 <TabPanel value={this.state.tabValue} index={0}>
-                    <HomeTab ref={this.homeRef}/>
+                    <HomeTab ref={this.homeRef} onSearch={this.handleSearch}/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
                     Item Two

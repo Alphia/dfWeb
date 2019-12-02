@@ -3,6 +3,7 @@ import Header from "./Header";
 import TabPanel from "./TabPanel";
 import HomeTab from "./HomeTab";
 import Bottom from "./Footer";
+import SellerTab from "./SellerTab";
 
 class Main extends React.Component {
 
@@ -29,7 +30,7 @@ class Main extends React.Component {
                     <HomeTab ref={this.homeRef} onSearch={this.handleSearch}/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
-                    Item Two
+                    <SellerTab/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={2}>
                     Item Three

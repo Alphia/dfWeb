@@ -16,7 +16,7 @@ class App extends React.Component {
         super(props, context);
         this.state = {
             isStranger: false,
-            userName: "wang",
+            userName: "王医生",
         }
     }
 

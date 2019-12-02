@@ -37,16 +37,17 @@ const styles = {
     },
 
     nav: {
-        backgroundColor: 'rgb(60,73,84)',
+        backgroundColor: 'rgb(220,226,228)',
         '& button': {
             fontSize: '2rem',
-            color: '#ffffff !important',
+            // color: '#ffffff !important',
             minWidth: '13rem',
         },
     },
 
     navTab:{
         display:'inline-block',
+        color:'#ffffff',
     },
 
     subTitle: {
@@ -107,8 +108,8 @@ class Header extends React.Component {
                                 textColor="primary"
                                 centered
                             >
-                                <Tab label="购买数据"/>
-                                <Tab label="出售数据"/>
+                                <Tab label="购买数据" textColor="secondary"/>
+                                <Tab label="出售数据" textColor="inherit"/>
                             </Tabs>
                         </div>
                     </div>

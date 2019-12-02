@@ -29,7 +29,7 @@ const styles = {
     tab: {
         fontSize: '1.6rem',
     },
-    panelWrapper:{
+    panelWrapper: {
         width: '88%',
     },
     tabPanel: {
@@ -62,27 +62,25 @@ class SellerTab extends React.Component {
                     aria-label="Vertical tabs example"
                     className={classes.tabs}
                 >
-                    <Tab className={classes.tab} label="收益统计" id={"vertical-tab-0"}/>
                     <Tab className={classes.tab} label="流量监控" id={"vertical-tab-1"}/>
+                    <Tab className={classes.tab} label="收益统计" id={"vertical-tab-0"}/>
                     <Tab className={classes.tab} label="访问管理" id={"vertical-tab-2"}/>
                     <Tab className={classes.tab} label="数据管理" id={"vertical-tab-3"}/>
-                    <Tab className={classes.tab} label="访问管理" id={"vertical-tab-4"}/>
 
                 </Tabs>
                 <div className={classes.panelWrapper}>
                     <TabPanel index={0} value={this.state.tabValue}>
                         <div className={classes.tabPanel}>
-                            <IncomeStas/>
+                            <TrafficMonitor/>
                         </div>
                     </TabPanel>
                     <TabPanel index={1} value={this.state.tabValue}>
                         <div className={classes.tabPanel}>
-                            <TrafficMonitor/>
+                            <IncomeStas/>
                         </div>
                     </TabPanel>
                     <TabPanel index={2} value={this.state.tabValue}>
                         <div className={classes.tabPanel}>
-                            333
                             <AccessManagement/>
                         </div>
                     </TabPanel>

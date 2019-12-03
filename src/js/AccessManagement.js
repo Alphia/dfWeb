@@ -7,6 +7,7 @@ import Available from "@material-ui/icons/Done"
 import {Collapse} from "@material-ui/core";
 import ListItemText from "@material-ui/core/ListItemText";
 import {ExpandLess, ExpandMore} from "@material-ui/icons";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const styles = {
     accessRoot: {
@@ -14,6 +15,9 @@ const styles = {
             width: '8rem',
             textAlign: 'center',
             fontSize: '1.8rem',
+        },
+        '& p': {
+            fontSize: '1.8rem'
         }
     },
     accessP: {
@@ -22,9 +26,11 @@ const styles = {
     },
     forbidden: {
         color: 'red',
+
     },
     available: {
         color: 'green',
+
     },
     collapse: {
         margin: '0 0 0 15rem',
@@ -50,7 +56,7 @@ const dataSources = [
     },
     {
         id: 2,
-        name: '西京医院糖尿病病数据',
+        name: '二附院糖尿病病数据',
         price: 51200,
         size: '623 GB',
         users: [
@@ -110,7 +116,7 @@ class AccessManagement extends React.Component {
                             <ListItemText><b>数据价格</b></ListItemText>
                             <ListItemText><b>收起/展开</b></ListItemText>
                         </ListItem>
-                        {dataSources.map(ds => <React.Fragment>
+                        {dataSources.map(ds => <React.Fragment key={'ds-' + ds.id}>
                             <ListItem button>
                                 <ListItemText>{ds.name}</ListItemText>
                                 <ListItemText>{ds.size}</ListItemText>
@@ -128,11 +134,17 @@ class AccessManagement extends React.Component {
                                 <List key={ds.id} component="div" disablePadding>
                                     {ds.users.map(user =>
                                         <ListItem button key={user.id}>
-                                            <ListItemText> {this.isAvailable(user.id) ?
-                                                <Available onClick={() => this.enable(user.id)}
-                                                           className={classes.available}/> :
-                                                <ForbiddenIcon onClick={() => this.enable(user.id)}
-                                                               className={classes.forbidden}/>}</ListItemText>
+                                            <ListItemText>
+                                                <Tooltip title='点击改变状态'>
+                                                    {
+                                                        this.isAvailable(user.id) ?
+                                                            <Available onClick={() => this.enable(user.id)}
+                                                                       className={classes.available}/> :
+                                                            <ForbiddenIcon onClick={() => this.enable(user.id)}
+                                                                           className={classes.forbidden}/>
+                                                    }
+                                                </Tooltip>
+                                            </ListItemText>
                                             <ListItemText>{user.name}</ListItemText>
                                             <ListItemText>{user.ranking}</ListItemText>
                                         </ListItem>

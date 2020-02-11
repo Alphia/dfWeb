@@ -1,6 +1,6 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import ReactEcharts from "echarts-for-react";
+import ReactEcharts from "echarts-for-react/lib/index";
 
 const styles = {
     trafficRoot: {
@@ -75,6 +75,7 @@ const generateOption = () => {
         series: [{
             name: '数据流量',
             type: 'line',
+            smooth: true,
             showSymbol: false,
             hoverAnimation: false,
             data: dataY

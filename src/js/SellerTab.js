@@ -3,7 +3,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {Paper, Tab, Tabs} from "@material-ui/core";
 import TabPanel from "./TabPanel";
 import IncomeStas from "./IncomeStas";
-import TrafficMonitor from "./TrafficMonitor";
+import TrafficMonitor from "./seller/TrafficMonitor";
 import AccessManagement from "./AccessManagement";
 
 const styles = {

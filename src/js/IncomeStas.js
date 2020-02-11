@@ -100,7 +100,7 @@ const option = {
         {
             name: '数据流量',
             type: 'line',
-            smooth: true,
+            // smooth: true,
             symbol: 'none',
             sampling: 'average',
             itemStyle: {
@@ -118,7 +118,7 @@ const income = {
         [11, 211, 1200, 562.5, 31 * 562.5],
         [12, 211, 1200, 562.5, 31 * 562.5],
     ]
-}
+};
 
 class IncomeStas extends React.Component {
 

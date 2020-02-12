@@ -8,6 +8,7 @@ import * as widgets from "surveyjs-widgets";
 import $ from "jquery";
 import * as SurveyCore from "survey-core";
 import "survey-react/survey.css";
+import {questions} from './questionnaireConstants';
 
 window["$"] = window["jQuery"] = $;
 
@@ -38,21 +39,9 @@ widgets.ckeditor(SurveyCore);
 widgets.autocomplete(SurveyCore, $);
 widgets.bootstrapslider(SurveyCore);
 
+
 class Main extends React.Component {
-    json = {
-        "pages": [
-            {
-                "name": "page1",
-                "elements": [
-                    {
-                        "type": "text",
-                        "name": "name",
-                        "title": "名字"
-                    }
-                ]
-            }
-        ]
-    };
+    json = questions;
 
     constructor(props, context) {
         super(props, context);
@@ -78,12 +67,23 @@ class Main extends React.Component {
         var model = new Survey.Model(this.json);
         return (
             <div>
-                <Survey.Survey
-                    model={model}
-                    onComplete={this.onComplete}
-                    showCompletedPage={false}
-                    onValueChanged={this.onValueChanged}
-                />
+                <Header userName={this.state.userName} onTabChange={this.handleTabChange}/>
+                <TabPanel value={this.state.tabValue} index={0}>
+                    <Survey.Survey
+                        model={model}
+                        onComplete={this.onComplete}
+                        completeText={'提交'}
+                        // showCompletedPage={false}
+                        completedHtml={{}}
+                        onValueChanged={this.onValueChanged}
+                    />
+                </TabPanel>
+                <TabPanel value={this.state.tabValue} index={1}>
+                    健康指数
+                </TabPanel>
+                <TabPanel value={this.state.tabValue} index={2}>
+                    Item Three
+                </TabPanel>
             </div>
         )
     }

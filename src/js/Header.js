@@ -108,8 +108,8 @@ class Header extends React.Component {
                                 textColor="primary"
                                 centered
                             >
-                                <Tab label="购买数据" textColor="secondary"/>
-                                <Tab label="出售数据" textColor="inherit"/>
+                                <Tab label="健康日报" textColor="secondary"/>
+                                <Tab label="健康指数" textColor="inherit"/>
                             </Tabs>
                         </div>
                     </div>

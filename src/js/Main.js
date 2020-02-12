@@ -60,7 +60,7 @@ class Main extends React.Component {
 
     onComplete = (result) => {
         console.log("Complete! " , result.data);
-
+        window.scrollTo(0, 0)
     };
 
     render() {
@@ -74,7 +74,7 @@ class Main extends React.Component {
                         onComplete={this.onComplete}
                         completeText={'提交'}
                         // showCompletedPage={false}
-                        completedHtml={{}}
+                        completedHtml={'<h1>谢谢提交</h1>'}
                         onValueChanged={this.onValueChanged}
                     />
                 </TabPanel>

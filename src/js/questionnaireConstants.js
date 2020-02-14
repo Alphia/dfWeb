@@ -5,6 +5,7 @@ const questions = {
             "elements": [
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "isInXian",
                     "title": "当前是否在西安？",
                     "choices": [
@@ -20,12 +21,14 @@ const questions = {
                 },
                 {
                     "type": "text",
+                    "isRequired": true,
                     "name": "currentLocation",
                     "visibleIf": "{isInXian} = false",
                     "title": "当前在哪里？"
                 },
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "hasLeft",
                     "title": "最近14天是否离开过所在城市？",
                     "choices": [
@@ -41,12 +44,14 @@ const questions = {
                 },
                 {
                     "type": "text",
+                    "isRequired": true,
                     "name": "leftFor",
                     "visibleIf": "{hasLeft} = true",
                     "title": "去过哪里?"
                 },
                 {
                     "type": "checkbox",
+                    "isRequired": true,
                     "name": "vehiclesInFortnight",
                     "title": "近14天出行所乘坐交通工具（多选）:",
                     "choices": [
@@ -58,6 +63,7 @@ const questions = {
                 },
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "outgoingTimeInFortnight",
                     "title": "近14天累计外出时长：",
                     "choices": [
@@ -69,6 +75,7 @@ const questions = {
                 },
                 {
                     "type": "checkbox",
+                    "isRequired": true,
                     "name": "outgoingSites",
                     "title": "外出场所（多选）：",
                     "choices": [
@@ -81,6 +88,7 @@ const questions = {
                 },
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "touchedPersonSumInFortnight",
                     "title": "近14天近距离接触人数：",
                     "choices": [
@@ -92,6 +100,7 @@ const questions = {
                 },
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "hasTouchedVirus",
                     "title": "近14天是否接触过新冠确诊病人或疑似病人？",
                     "choices": [
@@ -108,6 +117,7 @@ const questions = {
 
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "isAnyNeighborInfected",
                     "title": "所在小区是否有人感染？",
                     "choices": [
@@ -123,6 +133,7 @@ const questions = {
                 },
                 {
                     "type": "radiogroup",
+                    "isRequired": true,
                     "name": "hasMasked",
                     "title": "出行是否佩戴口罩？",
                     "choices": [
@@ -139,6 +150,7 @@ const questions = {
 
                 {
                     "type": "checkbox",
+                    "isRequired": true,
                     "name": "symptom",
                     "title": "当前健康状况（多选）：",
                     "choices": [

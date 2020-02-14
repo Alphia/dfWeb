@@ -6,6 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {BrowserRouter as Router, Redirect, Route, Switch, useHistory,} from "react-router-dom";
 import SignUp from "./SignUp";
 import {UserStore} from "./Constant";
+import Evaluation from "./Evaluation";
 
 const styles = {
     root: {
@@ -36,6 +37,9 @@ function App() {
                 </Route>
                 <Route path="/signUp">
                     <SignUp/>
+                </Route>
+                <Route path="/evaluation">
+                    <Evaluation/>
                 </Route>
                 <PrivateRoute path="/">
                     <Main/>

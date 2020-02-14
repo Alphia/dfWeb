@@ -1,10 +1,9 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import QrCode from 'qrcode.react';
 import axios from "axios";
 import {config} from "./config";
-import {UserStore} from "./Constant";
 import status from "http-status";
+import {withRouter} from "react-router";
 
 const styles = {
     cardWrapper: {
@@ -35,7 +34,7 @@ const styles = {
     },
 };
 
-class QRCard extends React.Component {
+class Evaluation extends React.Component {
 
     constructor(props, context) {
         super(props, context);
@@ -45,7 +44,7 @@ class QRCard extends React.Component {
     }
 
     componentDidMount() {
-        let scoreUrl = config.heServerUrl + config.evaluationPath + '?nick=' + UserStore.user.nick;
+        let scoreUrl = config.heServerUrl + config.evaluationPath + this.props.location.search;
         console.log('scoreurl: ', scoreUrl);
         axios.get(scoreUrl)
             .then(res => {
@@ -61,10 +60,6 @@ class QRCard extends React.Component {
         const scoreData = this.state.scoreData;
         return (
             <div className={classes.cardWrapper}>
-                <div className={classes.instruction}>请向管理人员出示 风险报告二维码</div>
-                <div className={classes.qrWrapper}>
-                    <QrCode size={160} value={config.heFrontUrl + 'evaluation?nick=' + UserStore.user.nick}/>
-                </div>
                 <div className={classes.ratting}>
                     <h3>姓名：{this.state.scoreData.name}</h3>
                     <h3>身份证：{scoreData.pid}</h3>
@@ -75,4 +70,4 @@ class QRCard extends React.Component {
     }
 }
 
-export default withStyles(styles)(QRCard);
+export default withRouter(withStyles(styles)(Evaluation));

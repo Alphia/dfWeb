@@ -2,6 +2,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import {withRouter} from "react-router";
 
 const styles = {
     bannerWrapper: {
@@ -37,9 +38,9 @@ const styles = {
         },
     },
 
-    navTab:{
-        display:'inline-block',
-        color:'#ffffff',
+    navTab: {
+        display: 'inline-block',
+        color: '#ffffff',
     },
 
     subTitle: {
@@ -58,14 +59,12 @@ class Header extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            userName: this.props.userName,
             value: 0
         }
     }
 
-    handleChange = (event, newValue) => {
-        this.setState({value: newValue});
-        this.props.onTabChange(newValue);
+    tabClickHandler = (url) => () => {
+        this.props.history.push(url)
     };
 
     render() {
@@ -76,14 +75,13 @@ class Header extends React.Component {
                     <div className={classes.bannerWrapper}>
                         <div className={classes.navTab}>
                             <Tabs
-                                value={this.state.value}
-                                onChange={this.handleChange}
+                                value={this.props.tabIndex}
                                 indicatorColor="primary"
                                 textColor="primary"
                                 centered
                             >
-                                <Tab label="健康日报" textColor="secondary"/>
-                                <Tab label="风险报告" textColor="inherit"/>
+                                <Tab onClick={this.tabClickHandler('/')} label="健康日报" textColor="secondary"/>
+                                <Tab onClick={this.tabClickHandler('/report')} label="风险报告" textColor="inherit"/>
                             </Tabs>
                         </div>
                     </div>
@@ -94,4 +92,4 @@ class Header extends React.Component {
 }
 
 
-export default withStyles(styles)(Header);
+export default withRouter(withStyles(styles)(Header));

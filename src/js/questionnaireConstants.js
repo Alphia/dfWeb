@@ -55,10 +55,10 @@ const questions = {
                     "name": "vehiclesInFortnight",
                     "title": "近14天出行所乘坐交通工具（多选）:",
                     "choices": [
-                        "步行",
-                        "自驾",
-                        "公共交通",
-                        "火车或飞机"
+                        {"value": "0", "text": "步行"},
+                        {"value": "1", "text": "自驾"},
+                        {"value": "2", "text": "公共交通"},
+                        {"value": "3", "text": "火车或飞机"},
                     ]
                 },
                 {
@@ -67,10 +67,10 @@ const questions = {
                     "name": "outgoingTimeInFortnight",
                     "title": "近14天累计外出时长：",
                     "choices": [
-                        "小于5小时",
-                        "5-20小时",
-                        "20-50小时",
-                        "大于50小时"
+                        {"value": "0", "text": "小于5小时"},
+                        {"value": "1", "text": "6-20小时"},
+                        {"value": "2", "text": "21-50小时"},
+                        {"value": "3", "text": "大于50小时"}
                     ]
                 },
                 {
@@ -79,11 +79,11 @@ const questions = {
                     "name": "outgoingSites",
                     "title": "外出场所（多选）：",
                     "choices": [
-                        "超市商场",
-                        "机场、车站",
-                        "公园等室外",
-                        "办公室",
-                        "医院"
+                        {"value": "0", "text": "超市商场"},
+                        {"value": "1", "text": "机场、车站"},
+                        {"value": "2", "text": "公园等室外"},
+                        {"value": "3", "text": "办公室"},
+                        {"value": "4", "text": "医院"},
                     ]
                 },
                 {
@@ -92,10 +92,10 @@ const questions = {
                     "name": "touchedPersonSumInFortnight",
                     "title": "近14天近距离接触人数：",
                     "choices": [
-                        "0-6人",
-                        "6-20人",
-                        "20-100人",
-                        "大于100人"
+                        {"value": "0", "text": "0-5人"},
+                        {"value": "1", "text": "6-20人"},
+                        {"value": "2", "text": "21-100人"},
+                        {"value": "3", "text": "大于100人"},
                     ]
                 },
                 {
@@ -154,14 +154,14 @@ const questions = {
                     "name": "symptom",
                     "title": "当前健康状况（多选）：",
                     "choices": [
-                        "无异常",
-                        "发热",
-                        "乏力",
-                        "干咳",
-                        "鼻塞",
-                        "流涕",
-                        "咽痛",
-                        "腹泻"
+                        {"value": "0", "text": "无异常"},
+                        {"value": "1", "text": "发热"},
+                        {"value": "2", "text": "乏力"},
+                        {"value": "3", "text": "干咳"},
+                        {"value": "4", "text": "鼻塞"},
+                        {"value": "5", "text": "流涕"},
+                        {"value": "6", "text": "咽痛"},
+                        {"value": "7", "text": "腹泻"},
                     ]
                 },
 

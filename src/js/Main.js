@@ -7,7 +7,6 @@ import {questions} from './questionnaireConstants';
 import axios from 'axios';
 import QRCard from "./QRCard";
 import status from "./Logon";
-import {UserStore} from "./Constant";
 import {config} from './config';
 
 class Main extends React.Component {

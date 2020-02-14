@@ -8,6 +8,7 @@ import axios from 'axios';
 import QRCard from "./QRCard";
 import status from "./Logon";
 import {config} from './config';
+import {UserStore} from "./Constant";
 
 class Main extends React.Component {
     json = questions;
@@ -18,20 +19,29 @@ class Main extends React.Component {
         this.state = {
             userName: this.props.userName,
             tabValue: 0,
+            score: 0,
         }
     }
 
     handleTabChange = (value) => {
-        this.setState({tabValue: value})
+        this.setState({tabValue: value});
+        axios.get(config.heServerUrl + config.evaluationPath + '?nick=' + UserStore.user.nick)
+            .then(res => {
+                if (res.status === status.OK) {
+                    console.log('跳转中...');
+                    this.setState({score: res.data})
+                }
+            })
     };
 
     onComplete = (result) => {
-        console.log("submitting...", result.data);
-        let url = config.heServerUrl + config.dailyReportPath;
-        axios.post(url, result.data).then(res => {
-            console.log('submit record with status and data:', res.status,res.data);
+        let report = result.data;
+        report['nick']=UserStore.user.nick;
+        axios.post(config.heServerUrl + config.dailyReportPath, report).then(res => {
+            console.log('submit record with status and data:', res.status, res.data);
             if (res.status === status.OK) {
-                setTimeout(()=>this.props.history.push('/index'),3000);
+                console.log('跳转中...');
+                setTimeout(() => this.handleTabChange('1'), 3000);
             }
         })
     };
@@ -51,7 +61,7 @@ class Main extends React.Component {
                     />
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={1}>
-                        <QRCard/>
+                    <QRCard score={this.state.score}/>
                 </TabPanel>
                 <TabPanel value={this.state.tabValue} index={2}>
                     Item Three

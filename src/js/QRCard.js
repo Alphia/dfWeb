@@ -1,12 +1,5 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
 import QrCode from 'qrcode.react';
 
 const styles = {
@@ -45,13 +38,7 @@ class QRCard extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
-        let model = {
-            content: {
-                title: 'hahah',
-                introduction: 'xixi',
-            }
-        }
+        const {classes, score} = this.props;
         return (
             <div className={classes.cardWrapper}>
                 <div className={classes.instruction}>请向管理人员出示 风险报告二维码</div>
@@ -59,7 +46,7 @@ class QRCard extends React.Component {
                     <QrCode size={160} value='http://www.baidu.com'/>
                 </div>
                 <div className={classes.ratting}>
-                    <h2>风险指数:高</h2>
+                    <h2>风险指数:{score}</h2>
                 </div>
             </div>
         )

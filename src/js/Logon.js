@@ -11,9 +11,7 @@ import {UserStore} from "./Constant";
 
 const styles = {
     logonBox: {
-        background: 'rgba(245,244,246,0.95)',
         paddingTop: '280px',
-        paddingBottom: '300px',
         width: '100%',
     },
     label: {
@@ -56,14 +54,16 @@ class Logon extends React.Component {
     };
 
     logonHandler = () => {
-        axios.post(config.heServerUrl + config.logonPath, {
+        const user = {
             nick: this.state.username,
             passwd: sha256(this.state.password)
-        }).then(res => {
+        }
+        axios.post(config.heServerUrl + config.logonPath, user).then(res => {
             console.log('log on with status and data:', res.status, res.data);
             if (res.status === status.OK && res.data.err === '登陆成功') {
                 console.log('logged:', res.status, res.data);
                 UserStore.isAuthed = true;
+                UserStore.user.nick = this.state.username;
                 this.props.history.push('/')
             }
         })

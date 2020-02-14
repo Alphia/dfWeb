@@ -1,5 +1,5 @@
 const config={
-    heServerUrl: 'http://www.localhost:6022/',
+    heServerUrl: 'http://2y.2ej.com:6022/',
     registerPath: 'register',
     logonPath: 'login',
     dailyReportPath: 'record',

@@ -9,6 +9,7 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgba(245,244,246,0.95);
 }
 
 code {

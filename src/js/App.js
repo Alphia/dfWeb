@@ -9,7 +9,6 @@ import {UserStore} from "./Constant";
 
 const styles = {
     root: {
-        // backgroundColor:"rgb(234, 237, 237)"
         width: '100%'
     }
 };

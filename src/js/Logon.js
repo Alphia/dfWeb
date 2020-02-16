@@ -87,7 +87,7 @@ class Logon extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.logonBox}>
-                <h1 className={classes.header}>新冠肺炎风险智能评估系统</h1>
+                <h1 className={classes.header}>健康风险每日评测系统</h1>
                 <TextField
                     className={classes.textField}
                     InputProps={{className: classes.text}}

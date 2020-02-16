@@ -11,8 +11,14 @@ import {UserStore} from "./Constant";
 
 const styles = {
     logonBox: {
-        paddingTop: '280px',
+        paddingTop: '40px',
         width: '100%',
+    },
+    header:{
+        marginBottom: '200px',
+        fontSize: '28px',
+        textAlign: 'center',
+
     },
     label: {
         fontSize: '24px',
@@ -29,13 +35,14 @@ const styles = {
     buttons: {
         width: '100%',
         fontSize: '18px',
-        marginLeft: '20%',
         marginTop: '45px',
+        alignItems: ''
     },
     button: {
         fontSize: '20px',
+        width: '20%',
+        marginLeft: '20%',
         backgroundColor: 'rgb(68,220,193)',
-        margin: '0 50px 0 0',
     }
 };
 
@@ -80,6 +87,7 @@ class Logon extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.logonBox}>
+                <h1 className={classes.header}>新冠肺炎风险智能评估系统</h1>
                 <TextField
                     className={classes.textField}
                     InputProps={{className: classes.text}}

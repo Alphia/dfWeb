@@ -6,6 +6,7 @@ import {withRouter} from "react-router";
 import axios from 'axios';
 import {config} from './config';
 import sha256 from 'crypto-js/sha256';
+import swAlert from 'sweetalert2';
 
 const styles = {
 
@@ -13,8 +14,14 @@ const styles = {
 
         background: 'rgba(245,244,246,0.95)',
         paddingTop: '28px',
-        paddingBottom: '300px',
         width: '100%',
+    },
+
+    header:{
+        marginBottom: '80px',
+        fontSize: '28px',
+        textAlign: 'center',
+
     },
     label: {
         fontSize: '24px',
@@ -31,17 +38,16 @@ const styles = {
         marginTop: '15px',
     },
     buttons: {
-        // position: 'relative',
         width: '100%',
         fontSize: '18px',
-        marginLeft: '20%',
         marginTop: '45px',
-        // margin: '25px 0 0 85px',
+        alignItems: ''
     },
     button: {
         fontSize: '20px',
+        width: '30%',
+        marginLeft: '13%',
         backgroundColor: 'rgb(68,220,193)',
-        margin: '0 50px 0 0',
     }
 
 };
@@ -74,8 +80,11 @@ class SignUp extends React.Component {
             mobile: this.state.mobile,
             passwd: sha256(this.state.password)
         }).then(res => {
-            console.log('res.status: ', res.status)
-            console.log('res.data: ', res.data)
+            swAlert.fire({
+                title:'注册成功',
+                text:'请返回登录，3秒后自动返回！',
+                timer: 3000,
+            }).then(()=> this.props.history.push('/logon'))
         }).catch(ex=>{
             console.log('error occurs on sign up request, exception: ',ex);
         })
@@ -85,6 +94,7 @@ class SignUp extends React.Component {
         const {classes} = this.props;
         return (
             <div className={classes.logonBox}>
+                <h1 className={classes.header}>请填写注册信息</h1>
                 <TextField
                     className={classes.textField}
                     InputProps={{className: classes.text}}

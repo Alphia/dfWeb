@@ -34,40 +34,56 @@ const styles = {
     },
 };
 
-class Evaluation extends React.Component {
+class Report extends React.Component {
 
     constructor(props, context) {
         super(props, context);
         this.state = {
-            scoreData: {}
+            record: {
+                "name": "贺刚",
+                "gender": "男",
+                "pid": "610",
+                "address": "西安",
+                "contact": "138",
+                "symptom": [1, 2],
+                "bodyHeat": "37",
+                "hasTraveledWuhan": true,
+                "wuhanSites": "武汉",
+                "hasTraveledOtherSites": true,
+                "otherSites": "杭州",
+                "hasTouchedNCov": true,
+                "hasTouchedPotentialNCov": true,
+                "isNearToPotentialNCov": true,
+                "Confirmation": true
+            }
         }
     }
 
     componentDidMount() {
-        let scoreUrl = config.heServerUrl + config.evaluationPath + this.props.location.search;
-        console.log('scoreurl: ', scoreUrl);
-        axios.get(scoreUrl)
+        let recordUrl = config.heServerUrl + config.recordPath + this.props.location.search;
+        console.log('recordUrl: ', recordUrl);
+        axios.get(recordUrl)
             .then(res => {
                 if (res.status === status.OK) {
-                    console.log('读score...', res.data);
-                    this.setState({scoreData: res.data})
+                    console.log('读record...', res.data);
+                    this.setState({record: res.data})
                 }
             })
     }
 
     render() {
         const {classes} = this.props;
-        const scoreData = this.state.scoreData;
+        const record = this.state.record;
         return (
             <div className={classes.cardWrapper}>
                 <div className={classes.ratting}>
-                    <h3>姓名：{this.state.scoreData.name}</h3>
-                    <h3>身份证：{scoreData.pid}</h3>
-                    <h3>风险指数:{scoreData.score}</h3>
+                    {Object.entries(record).map(([k,v])=>
+                        <p><span>{k}: </span><span>{v}</span></p>
+                    )}
                 </div>
             </div>
         )
     }
 }
 
-export default withRouter(withStyles(styles)(Evaluation));
+export default withRouter(withStyles(styles)(Report));

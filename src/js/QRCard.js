@@ -39,35 +39,32 @@ class QRCard extends React.Component {
 
     constructor(props, context) {
         super(props, context);
-        this.state = {
-            scoreData: {}
-        }
     }
 
     componentDidMount() {
-        let scoreUrl = config.heServerUrl + config.evaluationPath + '?nick=' + UserStore.user.nick;
+        let scoreUrl = config.heServerUrl + config.recordPath + '?pid=' + this.props.patient.pid;
         console.log('scoreurl: ', scoreUrl);
         axios.get(scoreUrl)
             .then(res => {
                 if (res.status === status.OK) {
                     console.log('读score...', res.data);
-                    this.setState({scoreData: res.data})
+                    this.setState({record: res.data})
                 }
             })
     }
 
     render() {
         const {classes} = this.props;
-        const scoreData = this.state.scoreData;
+        const patient = this.props.patient;
         return (
             <div className={classes.cardWrapper}>
                 <div className={classes.instruction}>请向管理人员出示 患者承诺书报告二维码</div>
                 <div className={classes.qrWrapper}>
-                    <QrCode size={160} value={config.heFrontUrl + 'report?pid=' + UserStore.user.pid}/>
+                    <QrCode size={160} value={config.heFrontUrl + 'report?pid=' + patient.pid}/>
                 </div>
                 <div className={classes.ratting}>
-                    <h3>姓名：{scoreData.name}</h3>
-                    <h3>身份证：{scoreData.pid}</h3>
+                    <h3>姓名：{patient.name}</h3>
+                    <h3>身份证：{patient.pid}</h3>
                 </div>
             </div>
         )

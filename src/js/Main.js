@@ -8,6 +8,7 @@ import {config} from './config';
 import {Route, Switch, withRouter} from "react-router";
 import {withStyles} from "@material-ui/core";
 import status from 'http-status';
+import Report from "./Report";
 
 const styles = {
     header: {
@@ -34,15 +35,14 @@ class Main extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            pid: 0,
-            name: '',
+            patient: {}
         }
     }
 
     onComplete = (result) => {
         let payload = result.data;
-        this.setState({pid: payload.pid, name: payload.name});
-        axios.post(config.heServerUrl + config.dailyReportPath, payload).then(res => {
+        this.setState({patient:{pid: payload.pid, name: payload.name}});
+        axios.post(config.heServerUrl + config.recordPath, payload).then(res => {
             console.log('submit record with status and data:', res.status, res.data);
             if (res.status === status.OK) {
                 console.log('跳转中...');
@@ -76,7 +76,11 @@ class Main extends React.Component {
                 </Route>
                 <Route path="/qr">
                     <h1 className={classes.header}>流行病学调研门诊患者承诺书二维码</h1>
-                    <QRCard pid={this.state.scoreData}/>
+                    <QRCard patient={this.state.patient}/>
+                </Route>
+                <Route path="/report">
+                    <h1 className={classes.header}>流行病学调研门诊患者承诺书报告</h1>
+                    <Report/>
                 </Route>
             </Switch>
         )

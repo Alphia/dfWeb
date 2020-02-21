@@ -1,5 +1,4 @@
 let UserStore = {
-    isAuthed: false,
     user: {
         name: '',
         nick: '',

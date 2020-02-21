@@ -61,14 +61,13 @@ class QRCard extends React.Component {
         const scoreData = this.state.scoreData;
         return (
             <div className={classes.cardWrapper}>
-                <div className={classes.instruction}>请向管理人员出示 风险报告二维码</div>
+                <div className={classes.instruction}>请向管理人员出示 患者承诺书报告二维码</div>
                 <div className={classes.qrWrapper}>
-                    <QrCode size={160} value={config.heFrontUrl + 'evaluation?nick=' + UserStore.user.nick}/>
+                    <QrCode size={160} value={config.heFrontUrl + 'report?pid=' + UserStore.user.pid}/>
                 </div>
                 <div className={classes.ratting}>
-                    <h3>姓名：{this.state.scoreData.name}</h3>
+                    <h3>姓名：{scoreData.name}</h3>
                     <h3>身份证：{scoreData.pid}</h3>
-                    <h3>风险指数:{scoreData.score}</h3>
                 </div>
             </div>
         )

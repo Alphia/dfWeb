@@ -1,12 +1,8 @@
 import React from 'react';
 import '../css/App.scss';
-import Logon from "./Logon";
 import Main from "./Main";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {BrowserRouter as Router, Redirect, Route, Switch, useHistory,} from "react-router-dom";
-import SignUp from "./SignUp";
-import {UserStore} from "./Constant";
-import Evaluation from "./Evaluation";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 
 const styles = {
     root: {
@@ -14,36 +10,13 @@ const styles = {
     }
 };
 
-function PrivateRoute({children, ...rest}) {
-    return (<Route
-        {...rest}
-        render={({location}) =>
-            UserStore.isAuthed ? (children) : (
-                <Redirect
-                    to={{
-                        pathname: "/logon",
-                        state: {from: location}
-                    }}
-                />)}
-    />);
-}
-
 function App() {
     return (
         <Router>
             <Switch>
-                <Route path="/logon">
-                    <Logon/>
-                </Route>
-                <Route path="/signUp">
-                    <SignUp/>
-                </Route>
-                <Route path="/evaluation">
-                    <Evaluation/>
-                </Route>
-                <PrivateRoute path="/">
+                <Route path="/survey">
                     <Main/>
-                </PrivateRoute>
+                </Route>
             </Switch>
         </Router>)
 }

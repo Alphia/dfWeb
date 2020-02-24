@@ -3,7 +3,7 @@ const config={
     heFrontUrl: 'http://2y.2ej.com:6021/',
     registerPath: 'register',
     logonPath: 'login',
-    recordPath: 'record'
+    recordPath: 'info'
 };
 
 export {config}

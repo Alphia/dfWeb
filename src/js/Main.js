@@ -10,6 +10,7 @@ import {withStyles, Radio, FormControl, FormLabel, RadioGroup, FormControlLabel}
 import status from 'http-status';
 import Report from "./Report";
 import ConfirmationPage from "./ConfirmationPage";
+import Button from "@material-ui/core/Button";
 
 const styles = {
     header: {
@@ -36,7 +37,7 @@ class Main extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            patient: {},
+            patient: {id:'',name:''},
         }
     }
 
@@ -61,9 +62,10 @@ class Main extends React.Component {
         axios.post(config.heServerUrl + config.recordPath, payload).then(res => {
             console.log('submit record with status and data:', res.status, res.data);
             if (res.status === status.OK) {
-                this.props.history.push('/qr', {survey: payload});
+                this.props.history.push('/qr', {questionnaire: payload});
             }
-        })
+        });
+        this.props.history.push('/qr', {questionnaire: payload});
     };
 
     render() {
@@ -83,13 +85,12 @@ class Main extends React.Component {
                             onCompleting={this.onComplete}
                             completeText={'提交'}
                             showCompletedPage={false}
-                            // completedHtml={'<h1>提交成功，谢谢！</h1><h3>请在患者承诺报告里查看详情</h3><p>3秒后跳转</p>'}
                             onValueChanged={this.onValueChanged}
                         />
                     </div>
                 </Route>
                 <Route path="/qr">
-                    <h1 className={classes.header}>流行病学调研门诊患者承诺书二维码</h1>
+                    <h1 className={classes.header}>流行病学调研门诊患者承诺书提交结果</h1>
                     <QRCard patient={this.state.patient}/>
                 </Route>
                 <Route path="/report">

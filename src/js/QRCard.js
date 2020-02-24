@@ -1,6 +1,5 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {config} from "./config";
 import {withRouter} from "react-router";
 import _ from 'underscore';
 
@@ -53,10 +52,6 @@ const styles = {
 
 class QRCard extends React.Component {
 
-    constructor(props, context) {
-        super(props, context);
-    }
-
     componentDidMount() {
         // let scoreUrl = config.heServerUrl + config.recordPath + '?pid=' + this.props.patient.pid;
     }
@@ -97,7 +92,7 @@ class QRCard extends React.Component {
                     {/*    <QrCode size={160} value={config.heFrontUrl + 'report?pid=' + patient.pid}/>*/}
                     {/*</div>*/}
                     <div className={classes.ratting}>
-                        <h3>姓名：{q.name}</h3>
+                        <h3>姓名：{q.p_name}</h3>
                         <h3>身份证：{q.pid}</h3>
                     </div>
                     <p className={classes.p}>

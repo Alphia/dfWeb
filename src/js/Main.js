@@ -6,11 +6,10 @@ import axios from 'axios';
 import QRCard from "./QRCard";
 import {config} from './config';
 import {Route, Switch, withRouter} from "react-router";
-import {withStyles, Radio, FormControl, FormLabel, RadioGroup, FormControlLabel} from "@material-ui/core";
+import {withStyles} from "@material-ui/core";
 import status from 'http-status';
 import Report from "./Report";
 import ConfirmationPage from "./ConfirmationPage";
-import Button from "@material-ui/core/Button";
 
 const styles = {
     header: {
@@ -36,9 +35,7 @@ const styles = {
 class Main extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state = {
-            patient: {id:'',name:''},
-        }
+        this.state = {}
     }
 
     extractPayload = data => {
@@ -58,7 +55,6 @@ class Main extends React.Component {
 
     onComplete = (result) => {
         let payload = this.extractPayload(result.data);
-        this.setState({patient: {pid: payload.pid, name: payload.name}});
         axios.post(config.heServerUrl + config.recordPath, payload).then(res => {
             console.log('submit record with status and data:', res.status, res.data);
             if (res.status === status.OK) {
@@ -91,7 +87,7 @@ class Main extends React.Component {
                 </Route>
                 <Route path="/qr">
                     <h1 className={classes.header}>流行病学调研门诊患者承诺书提交结果</h1>
-                    <QRCard patient={this.state.patient}/>
+                    <QRCard/>
                 </Route>
                 <Route path="/report">
                     <h1 className={classes.header}>流行病学调研门诊患者承诺书报告</h1>

@@ -1,4 +1,4 @@
-import {FormControl, FormControlLabel, FormLabel, Radio, RadioGroup} from "@material-ui/core";
+import {FormControlLabel, Radio, RadioGroup} from "@material-ui/core";
 import {withRouter} from "react-router";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";

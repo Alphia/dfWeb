@@ -18,7 +18,7 @@ const questions = {
                 {
                     "type": "text",
                     "isRequired": true,
-                    "name": "name",
+                    "name": "p_name",
                     "title": "姓名"
                 },
                 {

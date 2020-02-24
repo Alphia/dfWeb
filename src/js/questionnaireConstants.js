@@ -4,6 +4,18 @@ const questions = {
             "name": "page1",
             "elements": [
                 {
+                    "type": "radiogroup",
+                    "isRequired": true,
+                    "name": "visitor",
+                    "title": "您的身份是？",
+                    "choices": [
+                        '门诊患者本人',
+                        '门诊患者家属/陪人',
+                        '住院患者本人',
+                        '住院患者家属/陪人',
+                    ]
+                },
+                {
                     "type": "text",
                     "isRequired": true,
                     "name": "name",
@@ -35,28 +47,6 @@ const questions = {
                     "title": "联系方式"
                 },
                 {
-                    "type": "checkbox",
-                    "isRequired": true,
-                    "name": "symptom",
-                    "title": "您目前的不适症状有哪些(可多选)",
-                    "choices": [
-                        {"value": 0, "text": "发热"},
-                        {"value": 1, "text": "咳嗽"},
-                        {"value": 2, "text": "咳痰"},
-                        {"value": 3, "text": "胸闷"},
-                        {"value": 4, "text": "气短"},
-                        {"value": 5, "text": "乏力"},
-                        {"value": 6, "text": "鼻塞"},
-                        {"value": 7, "text": "流涕"},
-                        {"value": 8, "text": "咽痛"},
-                        {"value": 9, "text": "头痛"},
-                        {"value": 10, "text": "肌肉痛"},
-                        {"value": 11, "text": "腹泻"},
-                        {"value": 12, "text": "无"},
-                        {"value": 13, "text": "其他"},
-                    ]
-                },
-                {
                     "type": "text",
                     "isRequired": true,
                     "name": "bodyHeat",
@@ -67,46 +57,20 @@ const questions = {
                     "isRequired": true,
                     "name": "hasTraveledWuhan",
                     "title": "您发病前14天内是否有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史?",
-                    "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        },
-                        {
-                            "value": false,
-                            "text": "否"
-                        }
-                    ]
-                },
-                {
-                    "type": "text",
-                    "isRequired": true,
-                    "name": "wuhanSites",
-                    "visibleIf": "{hasTraveledWuhan} = true",
-                    "title": "那请填写具体旅行史或居住史:"
+                    "choices": ["否"],
+                    "hasOther": true,
+                    "otherPlaceHolder": "请填写具体旅行史或居住史",
+                    "otherText": "是"
                 },
                 {
                     "type": "radiogroup",
                     "isRequired": true,
                     "name": "hasTraveledOtherSites",
                     "title": "您发病前14天内是否有其他外出旅行史?",
-                    "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        },
-                        {
-                            "value": false,
-                            "text": "否"
-                        }
-                    ]
-                },
-                {
-                    "type": "text",
-                    "isRequired": true,
-                    "name": "otherSites",
-                    "visibleIf": "{hasTraveledOtherSites} = true",
-                    "title": "请填写其它具体旅行史:"
+                    "choices": ["否"],
+                    "hasOther": true,
+                    "otherPlaceHolder": "请填写其他具体旅行史",
+                    "otherText": "是"
                 },
 
                 {
@@ -114,16 +78,7 @@ const questions = {
                     "isRequired": true,
                     "name": "hasTouchedNCov",
                     "title": "您发病前 14 天内是否与新型冠状病毒感染者(核酸检测阳性者)有接触史?",
-                    "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        },
-                        {
-                            "value": false,
-                            "text": "否"
-                        }
-                    ]
+                    "choices": ["是", "否"]
                 },
 
                 {
@@ -131,16 +86,7 @@ const questions = {
                     "isRequired": true,
                     "name": "hasTouchedPotentialNCov",
                     "title": "您发病前 14 天内是否曾接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的患者?",
-                    "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        },
-                        {
-                            "value": false,
-                            "text": "否"
-                        }
-                    ]
+                    "choices": ["是", "否"]
                 },
 
                 {
@@ -148,44 +94,61 @@ const questions = {
                     "isRequired": true,
                     "name": "isNearToPotentialNCov",
                     "title": "您发病前 14 天内是否在小范围(如一个家庭、一个工地、一个单位、一个社区等)发 现 2 例及以上的发热、呼吸道症状患者?",
-                    "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        },
-                        {
-                            "value": false,
-                            "text": "否"
-                        }
-                    ]
+                    "choices": ["是", "否"]
                 },
-
                 {
-                    "type": "radiogroup",
+                    "type": "checkbox",
                     "isRequired": true,
-                    "name": "Confirmation",
-                    "title": " 承诺:我承诺以上情况属实，如恶意隐瞒信息，自愿承担相关法律责任(注:作出承诺后方可成功提交)。",
+                    "name": "symptom",
+                    "title": "您目前的不适症状有哪些(可多选)",
                     "choices": [
-                        {
-                            "value": true,
-                            "text": "是"
-                        }
-                    ]
+                        "发热",
+                        "咳嗽",
+                        "咳痰",
+                        "胸闷",
+                        "气短",
+                        "乏力",
+                        "鼻塞",
+                        "流涕",
+                        "咽痛",
+                        "头痛",
+                        "肌肉痛",
+                        "腹泻",
+                        "无"
+                    ],
+                    "hasOther": true,
+                    "otherPlaceHolder": "请填写其他症状",
+                    "otherText": "其他"
                 },
-
-                // {
-                //     "type": "multipletext",
-                //     "name": "question5",
-                //     "title": "多文字",
-                //     "items": [
-                //         {
-                //             "name": "text1"
-                //         },
-                //         {
-                //             "name": "text2"
-                //         }
-                //     ]
-                // }
+                {
+                    "type": "checkbox",
+                    "isRequired": true,
+                    "visibleIf": "{visitor} = '住院患者本人'",
+                    "name": "otherSymptom",
+                    "title": "您平时有什么基础疾病（可多选）？",
+                    "choices": [
+                        "慢性呼吸系统疾病",
+                        "高血压",
+                        "糖尿病",
+                        "冠心病",
+                        "脑血管病",
+                        "慢性肝病",
+                        "慢性肾病",
+                        "肿瘤病史",
+                        "血液系统疾病",
+                        "无"
+                    ],
+                    "hasOther": true,
+                    "otherPlaceHolder": "请填写其他症状",
+                    "otherText": "其他"
+                },
+                {
+                    "type": "text",
+                    "isRequired": true,
+                    "name": "drugsInFortnight",
+                    "visibleIf": "{visitor} = '住院患者本人'",
+                    "title": "近14天用药史:"
+                },
             ]
         }
     ]

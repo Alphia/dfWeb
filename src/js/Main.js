@@ -6,7 +6,7 @@ import axios from 'axios';
 import QRCard from "./QRCard";
 import {config} from './config';
 import {Route, Switch, withRouter} from "react-router";
-import {withStyles, Radio, FormControl, FormLabel, RadioGroup,FormControlLabel} from "@material-ui/core";
+import {withStyles, Radio, FormControl, FormLabel, RadioGroup, FormControlLabel} from "@material-ui/core";
 import status from 'http-status';
 import Report from "./Report";
 import ConfirmationPage from "./ConfirmationPage";
@@ -40,15 +40,28 @@ class Main extends React.Component {
         }
     }
 
+    extractPayload = data => {
+        let payload = data;
+        if (payload.hasTraveledWuhan === 'other') {
+            payload.hasTraveledWuhan = '是';
+            payload.wuhanSites = payload['hasTraveledWuhan-Comment'];
+            delete payload['hasTraveledWuhan-Comment'];
+        }
+        if (payload.hasTraveledOtherSites === 'other') {
+            payload.hasTraveledOtherSites = '是';
+            payload.otherSites = payload['hasTraveledOtherSites-Comment'];
+            delete payload['hasTraveledOtherSites-Comment'];
+        }
+        return payload;
+    };
+
     onComplete = (result) => {
-        let payload = result.data;
-        this.setState({patient:{pid: payload.pid, name: payload.name}});
+        let payload = this.extractPayload(result.data);
+        this.setState({patient: {pid: payload.pid, name: payload.name}});
         axios.post(config.heServerUrl + config.recordPath, payload).then(res => {
             console.log('submit record with status and data:', res.status, res.data);
             if (res.status === status.OK) {
-                console.log('跳转中...');
-                this.setState({hasSubmit: true});
-                setTimeout(() => this.props.history.push('/qr'), 3000);
+                this.props.history.push('/qr', {survey: payload});
             }
         })
     };
@@ -69,8 +82,8 @@ class Main extends React.Component {
                             model={model}
                             onCompleting={this.onComplete}
                             completeText={'提交'}
-                            showCompletedPage={true}
-                            completedHtml={'<h1>提交成功，谢谢！</h1><h3>请在患者承诺报告里查看详情</h3><p>3秒后跳转</p>'}
+                            showCompletedPage={false}
+                            // completedHtml={'<h1>提交成功，谢谢！</h1><h3>请在患者承诺报告里查看详情</h3><p>3秒后跳转</p>'}
                             onValueChanged={this.onValueChanged}
                         />
                     </div>

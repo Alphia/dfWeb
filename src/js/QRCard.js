@@ -3,7 +3,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import QrCode from 'qrcode.react';
 import axios from "axios";
 import {config} from "./config";
-import {UserStore} from "./Constant";
 import status from "http-status";
 
 const styles = {

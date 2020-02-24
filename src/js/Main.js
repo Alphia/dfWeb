@@ -82,7 +82,7 @@ class Main extends React.Component {
                     <ConfirmationPage/>
                 </Route>
                 <Route path="/survey">
-                    <h1 className={classes.header}>流行病学调研门诊患者承诺书</h1>
+                    <h1 className={classes.header}>西安交通大学第二附属医院流行病学调研承诺书</h1>
                     <p className={classes.tip}><b>*重要提示:请您谨慎如实填写以下信息，并确保所填信息准确无误，一旦提交后不能修改!</b></p>
                     <div className={classes.surveyWrapper}>
                         <Survey.Survey

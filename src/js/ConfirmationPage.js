@@ -47,7 +47,7 @@ class ConfirmationPage extends React.Component {
         const {classes} = this.props;
         return (
             <React.Fragment>
-                <h1 className={classes.header}>{'西安交通大学第二附属医院\n 流行病学调研承诺书'}</h1>
+                <h1 className={classes.header}>{'西安交通大学第二附属医院流行病学调研承诺书'}</h1>
                 <p className={classes.instruction}>{'      您好，根据《中华人民共和国传染病防治法》等相关法律法规要求，请您配合我们填写以下内容，医院负责保护您所填写的个人信息安全。\n' +
                 '      我国《刑法》第三百三十条规定：违反传染病防治法的规定，引起甲类传染病传播或者有传播严重危险的，处三年以下有期徒刑或者拘役；后果特别严重的，处三年以上七年以下有期徒刑。\n' +
                 '       请您务必如实填报，若故意隐瞒相关情况，造成后果，患者及陪同人员将要承担相应法律责任。\n' +

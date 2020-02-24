@@ -6,9 +6,10 @@ import axios from 'axios';
 import QRCard from "./QRCard";
 import {config} from './config';
 import {Route, Switch, withRouter} from "react-router";
-import {withStyles} from "@material-ui/core";
+import {withStyles, Radio, FormControl, FormLabel, RadioGroup,FormControlLabel} from "@material-ui/core";
 import status from 'http-status';
 import Report from "./Report";
+import ConfirmationPage from "./ConfirmationPage";
 
 const styles = {
     header: {
@@ -35,7 +36,7 @@ class Main extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            patient: {}
+            patient: {},
         }
     }
 
@@ -57,11 +58,11 @@ class Main extends React.Component {
         const {classes} = this.props;
         return (
             <Switch>
+                <Route path="/confirmation">
+                    <ConfirmationPage/>
+                </Route>
                 <Route path="/survey">
                     <h1 className={classes.header}>流行病学调研门诊患者承诺书</h1>
-
-                    <p className={classes.instruction}>{'      您好，根据《中华人民共和国传染病防治法》等相关法律法规要求，请您配合我们填 写以下内容， 医院负责保护您所填写的个人信息安全。 '}</p>
-                    <p className={classes.instruction}>{'      请您提交成功后, 将详细数据出示给医务人员查验。'}</p>
                     <p className={classes.tip}><b>*重要提示:请您谨慎如实填写以下信息，并确保所填信息准确无误，一旦提交后不能修改!</b></p>
                     <div className={classes.surveyWrapper}>
                         <Survey.Survey

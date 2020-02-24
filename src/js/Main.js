@@ -10,6 +10,7 @@ import {withStyles} from "@material-ui/core";
 import status from 'http-status';
 import Report from "./Report";
 import ConfirmationPage from "./ConfirmationPage";
+import _ from 'underscore';
 
 const styles = {
     header: {
@@ -49,6 +50,14 @@ class Main extends React.Component {
             payload.hasTraveledOtherSites = '是';
             payload.otherSites = payload['hasTraveledOtherSites-Comment'];
             delete payload['hasTraveledOtherSites-Comment'];
+        }
+        if(_(payload['symptom']).contains('other')){
+            payload['symptom_Comment']=payload['symptom-Comment'];
+            delete payload['symptom-Comment'];
+        }
+        if(_(payload['otherSymptom'].contains('other'))){
+            payload['otherSymptom_Comment']=payload['otherSymptom-Comment'];
+            delete payload['otherSymptom-Comment'];
         }
         return payload;
     };

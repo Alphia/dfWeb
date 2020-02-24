@@ -78,7 +78,7 @@ const questions = {
                     "isRequired": true,
                     "name": "hasTouchedNCov",
                     "title": "您发病前 14 天内是否与新型冠状病毒感染者(核酸检测阳性者)有接触史?",
-                    "choices": ["是", "否"]
+                    "choices": ["否", "是"]
                 },
 
                 {
@@ -86,7 +86,7 @@ const questions = {
                     "isRequired": true,
                     "name": "hasTouchedPotentialNCov",
                     "title": "您发病前 14 天内是否曾接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的患者?",
-                    "choices": ["是", "否"]
+                    "choices": ["否", "是"]
                 },
 
                 {
@@ -94,7 +94,7 @@ const questions = {
                     "isRequired": true,
                     "name": "isNearToPotentialNCov",
                     "title": "您发病前 14 天内是否在小范围(如一个家庭、一个工地、一个单位、一个社区等)发 现 2 例及以上的发热、呼吸道症状患者?",
-                    "choices": ["是", "否"]
+                    "choices": ["否", "是"]
                 },
                 {
                     "type": "checkbox",

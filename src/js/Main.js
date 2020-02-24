@@ -51,11 +51,11 @@ class Main extends React.Component {
             payload.otherSites = payload['hasTraveledOtherSites-Comment'];
             delete payload['hasTraveledOtherSites-Comment'];
         }
-        if(_(payload['symptom']).contains('other')){
+        if(payload['symptom'] && _(payload['symptom']).contains('other')){
             payload['symptom_Comment']=payload['symptom-Comment'];
             delete payload['symptom-Comment'];
         }
-        if(_(payload['otherSymptom'].contains('other'))){
+        if(payload['otherSymptom'] && _(payload['otherSymptom'].contains('other'))){
             payload['otherSymptom_Comment']=payload['otherSymptom-Comment'];
             delete payload['otherSymptom-Comment'];
         }

@@ -6,6 +6,7 @@ const questions = {
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "visitor",
                     "title": "您的身份是？",
                     "choices": [
@@ -18,24 +19,28 @@ const questions = {
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "p_name",
                     "title": "姓名"
                 },
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "gender",
                     "title": "性别"
                 },
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "pid",
                     "title": "身份证号"
                 },
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "address",
                     "title": "住址"
                 },
@@ -43,18 +48,21 @@ const questions = {
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "contact",
                     "title": "联系方式"
                 },
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "bodyHeat",
                     "title": "您的当前体温"
                 },
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "hasTraveledWuhan",
                     "title": "您发病前14天内是否有武汉市及周边地区，或其他有病例报告社区的旅行史或居住史?",
                     "choices": ["否"],
@@ -65,6 +73,7 @@ const questions = {
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "hasTraveledOtherSites",
                     "title": "您发病前14天内是否有其他外出旅行史?",
                     "choices": ["否"],
@@ -76,6 +85,7 @@ const questions = {
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "hasTouchedNCov",
                     "title": "您发病前 14 天内是否与新型冠状病毒感染者(核酸检测阳性者)有接触史?",
                     "choices": ["否", "是"]
@@ -84,6 +94,7 @@ const questions = {
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "hasTouchedPotentialNCov",
                     "title": "您发病前 14 天内是否曾接触过来自武汉市及周边地区，或来自有病例报告社区的发热或有呼吸道症状的患者?",
                     "choices": ["否", "是"]
@@ -92,6 +103,7 @@ const questions = {
                 {
                     "type": "radiogroup",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "isNearToPotentialNCov",
                     "title": "您发病前 14 天内是否在小范围(如一个家庭、一个工地、一个单位、一个社区等)发 现 2 例及以上的发热、呼吸道症状患者?",
                     "choices": ["否", "是"]
@@ -99,6 +111,7 @@ const questions = {
                 {
                     "type": "checkbox",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "symptom",
                     "title": "您目前的不适症状有哪些(可多选)",
                     "choices": [
@@ -124,6 +137,7 @@ const questions = {
                 {
                     "type": "checkbox",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "visibleIf": "{visitor} = '住院患者本人'",
                     "name": "otherSymptom",
                     "title": "您平时有什么基础疾病（可多选）？",
@@ -146,6 +160,7 @@ const questions = {
                 {
                     "type": "text",
                     "isRequired": true,
+                    'requiredErrorText': '请填写',
                     "name": "drugsInFortnight",
                     "visibleIf": "{visitor} = '住院患者本人'",
                     "title": "近14天用药史:"

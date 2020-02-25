@@ -95,11 +95,11 @@ class Main extends React.Component {
                     </div>
                 </Route>
                 <Route path="/qr">
-                    <h1 className={classes.header}>流行病学调研门诊患者承诺书提交结果</h1>
+                    <h1 className={classes.header}>流行病学调研承诺书提交结果</h1>
                     <QRCard/>
                 </Route>
                 <Route path="/report">
-                    <h1 className={classes.header}>流行病学调研门诊患者承诺书报告</h1>
+                    <h1 className={classes.header}>流行病学调研承诺书报告</h1>
                     <Report/>
                 </Route>
             </Switch>

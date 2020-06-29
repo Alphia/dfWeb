@@ -6,6 +6,12 @@ import TrafficMonitor2 from "./bigscreen/TrafficMonitor2";
 import TrafficMonitor5 from "./bigscreen/TrafficMonitor5";
 import IncomeStas from "./IncomeStas";
 import TrafficMonitor22 from "./bigscreen/TrafficMonitor22";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const styles = {
     mainRoot: {
@@ -44,7 +50,7 @@ const styles = {
         height: '33%',
         boxSizing: 'border-box',
         borderBottom: 'solid 1px rgb(83,174,254)',
-        borderColor:'rgb(83,174,254)',
+        borderColor: 'rgb(83,174,254)',
         // backgroundColor: 'red'
     },
 };
@@ -59,33 +65,41 @@ class Main extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <div className={classes.mainRoot}>
-                <div className={classes.left}>
-                    <div className={classes.leftTop}>
-                        <TrafficMonitor5/>
-                    </div>
-                    <div className={classes.leftBottom}>
-                        <div className={classes.leftBottomItem}>
-                            <TrafficMonitor/>
+            <Router>
+                <Switch>
+                    <Route path={"/bigdata"}>
+                        <div className={classes.mainRoot}>
+                            <div className={classes.left}>
+                                <div className={classes.leftTop}>
+                                    <TrafficMonitor5/>
+                                </div>
+                                <div className={classes.leftBottom}>
+                                    <div className={classes.leftBottomItem}>
+                                        <TrafficMonitor/>
+                                    </div>
+                                    <div className={classes.leftBottomItem}>
+                                        <IncomeStas/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={classes.right}>
+                                <div className={classes.rightItem}>
+                                    <TrafficMonitor2/>
+                                </div>
+                                <div className={classes.rightItem}>
+                                    <TrafficMonitor22/>
+                                </div>
+                                <div className={classes.rightItem}>
+                                    <TrafficMonitor3/>
+                                </div>
+                            </div>
                         </div>
-                        <div className={classes.leftBottomItem}>
-                            <IncomeStas/>
-                        </div>
-                    </div>
-                </div>
-                <div className={classes.right}>
-                    <div className={classes.rightItem}>
-                        <TrafficMonitor2/>
-                    </div>
-                    <div className={classes.rightItem}>
-                        <TrafficMonitor22/>
-                    </div>
-                    <div className={classes.rightItem}>
-                        <TrafficMonitor3/>
-                    </div>
-                </div>
-            </div>
+                    </Route>
+                </Switch>
+
+            </Router>
         )
+
     }
 }
 

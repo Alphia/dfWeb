@@ -28,25 +28,6 @@ const generateData = () => {
 
 const data = generateData();
 
-const styles = {
-    incomeRoot: {
-        marginTop: '2rem',
-    },
-    incomeTableRoot: {
-        margin: '3rem auto',
-        '& td, th': {
-            minWidth: '12rem',
-            boxSizing: 'border-box',
-            border: 'solid 0.5px rgb(234, 237, 237)',
-            textAlign: 'center',
-        },
-    },
-    incomeP: {
-        margin: '3rem',
-        fontSize: '1.7rem'
-    }
-};
-
 const option = {
     tooltip: {
         trigger: 'axis',
@@ -127,30 +108,11 @@ class IncomeStas extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
         return (
-            <div className={classes.incomeRoot}>
-                <ReactEcharts style={{height: '600px', fontSize: '1.5rem'}} option={option}/>
-                <p className={classes.incomeP}>各月份收入统计：</p>
-                <table className={classes.incomeTableRoot}>
-                    <thead>
-                    <tr>
-                        {income.headers.map(header => <th>
-                            {header}
-                        </th>)}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {income.data.map(row => <tr>
-                        {row.map(cell => <td>{cell}</td>)}
-                    </tr>)}
-
-                    </tbody>
-                </table>
-            </div>
+                <ReactEcharts style={{height: '100%', fontSize: '1.5rem'}} option={option}/>
 
         )
     }
 }
 
-export default withStyles(styles)(IncomeStas)
+export default (IncomeStas)

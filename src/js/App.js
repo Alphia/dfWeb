@@ -6,7 +6,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles={
     root:{
-        backgroundColor:"rgb(234, 237, 237)"
+        backgroundColor:"rgb(234, 237, 237)",
+        height:'100%',
     }
 };
 

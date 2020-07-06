@@ -124,7 +124,7 @@ var itemStyle = {
 };
 
 const option = {
-    backgroundColor: '#404a59',
+    // backgroundColor: 'rgba(0, 0, 100, 0.1)',
     color: [
         '#dd4444', '#fec42c', '#80F1BE'
     ],

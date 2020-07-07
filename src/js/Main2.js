@@ -19,6 +19,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 const topHeight = 7;
 
@@ -35,9 +37,7 @@ const styles = {
         color: 'rgba(83,174,254)',
         textAlign: 'center',
         boxSizing: 'border-box',
-        alignItems: 'top',
         verticalAlign: 'top',
-        // backgroundColor: 'rgb(51,51,51, 0.1)',
     },
     topLeft: {
         display: 'inline-block',
@@ -45,37 +45,34 @@ const styles = {
     },
     topRight: {
         float: 'right',
-        color: 'red',
     },
+
     date: {
         color: '#CCCCCC',
         fontSize: '16px',
         width: '80px'
+    },
 
+    gridRoot: {
+        height: `${100 - topHeight - 0.5}%`,
     },
     left: {
-        width: '66%',
-        // paddingLeft: '0.5%',
-        display: 'inline-block',
-        verticalAlign: 'top',
         height: `${100 - topHeight - 0.5}%`,
     },
-    right: {
-        width: '32.5%',
-        height: `${100 - topHeight - 0.5}%`,
-        display: 'inline-block',
-        boxSizing: 'border-box',
-        marginLeft: '0.5%',
+    rightTop: {
+        height: '64%',
+        // display: 'inline-block',
+        // boxSizing: 'border-box',
     },
     leftTop: {
-        height: '65%',
+        height: '64%',
         boxSizing: 'border-box',
-        marginLeft: '15px',
         borderRadius: '15px',
         marginBottom: '1%',
         backgroundColor: 'rgba(83,83,83,0.5)',
         overflow: 'hidden',
     },
+
     leftBottom: {
         height: '32%',
     },
@@ -88,10 +85,11 @@ const styles = {
         boxSizing: 'border-box',
         display: 'inline-block',
     },
+
     rightItem: {
-        height: '32%',
+        height: '49%',
         boxSizing: 'border-box',
-        marginBottom: '1.8%',
+        marginBottom: '2%',
         borderRadius: '15px',
         backgroundColor: 'rgba(83,83,83,0.5)',
     },
@@ -135,7 +133,6 @@ class Main extends React.Component {
                 <Switch>
                     <Route path={"/bigdata"}>
                         <div className={classes.mainRoot}>
-                            {/*<div>*/}
                             <div className={classes.top}>
                                 <div className={classes.topLeft}>
                                     <h1>主要城市销售价格与营收</h1>
@@ -161,6 +158,34 @@ class Main extends React.Component {
                                     </MuiPickersUtilsProvider>
                                 </div>
                             </div>
+
+                            <Grid container spacing={3} className={classes.gridRoot}>
+                                <Grid item xs={8} className={classes.leftTop}>
+                                    <div>
+                                        <TrafficMonitor5/>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4} className={classes.rightTop}>
+                                    <div className={classes.rightItem}>
+                                        <TrafficMonitor2/>
+                                    </div>
+                                    <div className={classes.rightItem}>
+                                        <TrafficMonitor22/>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <Paper className={classes.paper}>xs=3</Paper>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Paper className={classes.paper}>xs=3</Paper>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Paper className={classes.paper}>xs=3</Paper>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Paper className={classes.paper}>xs=3</Paper>
+                                </Grid>
+                            </Grid>
                             <div className={classes.left}>
                                 <div className={classes.leftTop}>
                                     <TrafficMonitor5/>

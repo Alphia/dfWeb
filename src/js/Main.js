@@ -20,11 +20,11 @@ import {
     Link
 } from "react-router-dom";
 
-const topHeight = 9;
+const topHeight = 7;
 
 const styles = {
     mainRoot: {
-        width: '100%',
+        // width: '98%',
         height: '100%',
         verticalAlign: 'top',
         backgroundColor: 'rgba(218,46,80,0.77)',
@@ -38,6 +38,7 @@ const styles = {
     },
     topLeft: {
         display: 'inline-block',
+        paddingTop: '5px'
     },
     topRight: {
         float: 'right',
@@ -48,16 +49,18 @@ const styles = {
     },
     left: {
         width: '66%',
+        paddingLeft:'0.5%',
         display: 'inline-block',
         verticalAlign: 'top',
-        height: `${100 - topHeight}%`,
+        height: `${100 - topHeight -0.5 }%`,
     },
     right: {
-        width: '34%',
-        height: `${100 - topHeight}%`,
+        width: '33%',
+        height: `${100 - topHeight -0.5}%`,
         display: 'inline-block',
         boxSizing: 'border-box',
         borderRight: 'solid 1px rgb(83,174,254)',
+        borderTop: 'solid 1px rgb(83,174,254)',
     },
     leftTop: {
         height: '66.6%',

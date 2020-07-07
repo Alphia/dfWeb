@@ -3,8 +3,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import ReactEcharts from "echarts-for-react";
 
 const styles = {
-    trafficRoot: {
-    },
+    trafficRoot: {},
 };
 
 let dataX = [];
@@ -27,6 +26,10 @@ const generateOption = () => {
         title: {
             text: '实时流量监控',
             left: 'center',
+            textStyle: {
+                color: '#fff',
+                fontSize: 16
+            }
         },
         tooltip: {
             trigger: 'axis',
@@ -41,7 +44,16 @@ const generateOption = () => {
             splitLine: {
                 show: false
             },
-            data: dataX
+            data: dataX,
+            nameTextStyle: {
+                color: '#169ea8',
+                fontSize: 16
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#169ea8'
+                }
+            },
         },
         dataZoom: [{
             type: 'inside',
@@ -69,6 +81,15 @@ const generateOption = () => {
             },
             axisLabel: {
                 formatter: '{value} MB'
+            },
+            nameTextStyle: {
+                color: '#169ea8',
+                fontSize: 16
+            },
+            axisLine: {
+                lineStyle: {
+                    color: '#169ea8'
+                }
             },
         },
         series: [{
@@ -114,7 +135,8 @@ class TrafficMonitor extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <ReactEcharts style={{height:'100%'}} ref={this.echartsRef} option={this.state.option} className={classes.trafficRoot}/>
+            <ReactEcharts style={{height: '100%'}} ref={this.echartsRef} option={this.state.option}
+                          className={classes.trafficRoot}/>
         )
     }
 }

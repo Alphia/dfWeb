@@ -9,10 +9,14 @@ var weatherIcons = {
 };
 
 const option = {
+    // color: 'white',
     title: {
-        text: '天气情况统计',
-        subtext: '虚构数据',
-        left: 'center'
+        text: '各大洲营收统计',
+        left: 'center',
+        textStyle: {
+            color: '#fff',
+            fontSize: 16
+        }
     },
     tooltip: {
         trigger: 'item',
@@ -34,15 +38,16 @@ const option = {
             data: [
                 {
                     value: 1548,
-                    name: '幽州',
+                    name: '北美洲',
                     label: {
                         formatter: [
                             '{title|{b}}{abg|}',
-                            '  {weatherHead|天气}{valueHead|天数}{rateHead|占比}',
+                            // '  {weatherHead|收入}{valueHead|收入}{rateHead|占比}',
+                            '  {valueHead|收入}{rateHead|占比}',
                             '{hr|}',
-                            '  {Sunny|}{value|202}{rate|55.3%}',
-                            '  {Cloudy|}{value|142}{rate|38.9%}',
-                            '  {Showers|}{value|21}{rate|5.8%}'
+                            '  {value|202}{rate|55.3%}',
+                            '  {value|142}{rate|38.9%}',
+                            '  {value|21}{rate|5.8%}'
                         ].join('\n'),
                         backgroundColor: '#eee',
                         borderColor: '#777',
@@ -94,12 +99,14 @@ const option = {
                             },
                             value: {
                                 width: 20,
+                                height: 15,
                                 padding: [0, 20, 0, 30],
                                 align: 'left'
                             },
                             valueHead: {
                                 color: '#333',
                                 width: 20,
+                                height: 15,
                                 padding: [0, 20, 0, 30],
                                 align: 'center'
                             },
@@ -117,10 +124,10 @@ const option = {
                         }
                     }
                 },
-                {value: 535, name: '荆州'},
-                {value: 510, name: '兖州'},
-                {value: 634, name: '益州'},
-                {value: 735, name: '西凉'}
+                {value: 535, name: '非洲'},
+                {value: 510, name: '南美洲'},
+                {value: 634, name: '亚洲'},
+                {value: 735, name: '欧洲'}
             ],
             emphasis: {
                 itemStyle: {

@@ -106,7 +106,6 @@ var dataSH = [
 
 var schema = [
     {name: 'date', index: 0, text: '日'},
-    {name: 'AQIindex', index: 1, text: 'AQI指数'},
     {name: 'PM25', index: 2, text: 'PM2.5'},
     {name: 'PM10', index: 3, text: 'PM10'},
     {name: 'CO', index: 4, text: '一氧化碳（CO）'},
@@ -208,7 +207,6 @@ const option = {
             itemHeight: 120,
             calculable: true,
             precision: 0.1,
-            text: ['圆形大小：PM2.5'],
             textGap: 30,
             textStyle: {
                 color: '#fff'
@@ -229,35 +227,6 @@ const option = {
                 }
             }
         },
-        {
-            left: 'right',
-            bottom: '5%',
-            dimension: 6,
-            min: 0,
-            max: 50,
-            itemHeight: 120,
-
-            precision: 0.1,
-            text: ['明暗：二氧化硫'],
-            textGap: 30,
-            textStyle: {
-                color: '#fff'
-            },
-            inRange: {
-                colorLightness: [1, 0.5]
-            },
-            outOfRange: {
-                color: ['rgba(255,255,255,.2)']
-            },
-            controller: {
-                inRange: {
-                    color: ['#c23531']
-                },
-                outOfRange: {
-                    color: ['#444']
-                }
-            }
-        }
     ],
     series: [
         {

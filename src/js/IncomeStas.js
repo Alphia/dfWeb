@@ -39,6 +39,10 @@ const option = {
     title: {
         left: 'center',
         text: '历史收入数据',
+        textStyle: {
+            color: '#fff',
+            fontSize: 16
+        }
     },
     toolbox: {
         feature: {
@@ -50,14 +54,32 @@ const option = {
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: data.date
+        data: data.date,
+        nameTextStyle: {
+            color: '#169ea8',
+            fontSize: 16
+        },
+        axisLine: {
+            lineStyle: {
+                color: '#169ea8'
+            }
+        },
     },
     yAxis: {
         type: 'value',
         boundaryGap: [0, '100%'],
         axisLabel: {
             formatter: '{value} 元'
-        }
+        },
+        nameTextStyle: {
+            color: '#169ea8',
+            fontSize: 16
+        },
+        axisLine: {
+            lineStyle: {
+                color: '#169ea8'
+            }
+        },
     },
     dataZoom: [{
         type: 'inside',
